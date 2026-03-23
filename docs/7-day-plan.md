@@ -5,6 +5,7 @@
 - Finalize target industry.
 - Set up tracking repository.
 - Define healthcare-focused role narrative for Canada.
+- Lock in project datasets and tool stack.
 
 ## Day 2
 

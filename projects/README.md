@@ -5,7 +5,7 @@ Create one folder per project.
 Suggested structure:
 
 - `project-01-canadian-health-wait-times/`
-- `project-02-hospital-capacity-dashboard/`
+- `project-02-healthcare-access-dashboard/`
 
 Each project should include:
 

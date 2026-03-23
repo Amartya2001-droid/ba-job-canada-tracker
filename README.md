@@ -13,6 +13,9 @@ Build proof of work for a Canadian healthcare focus, publish visible project wor
 - Timeline: 7 days
 - Current industry focus: Healthcare
 - Primary stack: SQL + Power BI
+- Selected datasets:
+  - Statistics Canada Table 13-10-0701-01 for healthcare wait times
+  - Statistics Canada ODHF + Table 17-10-0157-01 for facility access analysis
 
 ## Repo Structure
 
@@ -38,4 +41,4 @@ Build proof of work for a Canadian healthcare focus, publish visible project wor
 
 ## Next Step
 
-Start with dataset selection for the healthcare industry in Canada.
+Day 1 is now complete enough to move into data collection for the healthcare projects.
