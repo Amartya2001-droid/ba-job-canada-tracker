@@ -19,6 +19,7 @@ Build proof of work for a Canadian healthcare focus, publish visible project wor
 
 ## Repo Structure
 
+- `data/` - raw and processed data intake notes
 - `docs/` - planning notes, learning notes, and strategy documents
 - `projects/` - project briefs, dataset notes, and deliverables
 - `tracker/` - daily progress, applications, and networking logs
@@ -39,6 +40,7 @@ Build proof of work for a Canadian healthcare focus, publish visible project wor
 - Update `tracker/networking.csv` for each outreach.
 - Create one folder per project inside `projects/`.
 - Use `docs/healthcare-positioning.md` to keep resume, LinkedIn, and portfolio messaging aligned.
+- Use `docs/sql-powerbi-workflow.md` as the default build process for both projects.
 
 ## Next Step
 
