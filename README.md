@@ -38,6 +38,7 @@ Build proof of work for a Canadian healthcare focus, publish visible project wor
 - Update `tracker/applications.csv` for each application.
 - Update `tracker/networking.csv` for each outreach.
 - Create one folder per project inside `projects/`.
+- Use `docs/healthcare-positioning.md` to keep resume, LinkedIn, and portfolio messaging aligned.
 
 ## Next Step
 
