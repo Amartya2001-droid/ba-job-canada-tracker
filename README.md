@@ -4,14 +4,14 @@ This repository tracks a 7-day sprint to become job-ready for a fresher Business
 
 ## Goal
 
-Build proof of work for a Canadian industry focus, publish visible project work, and track targeted applications.
+Build proof of work for a Canadian healthcare focus, publish visible project work, and track targeted applications.
 
 ## Sprint Focus
 
 - Target role: Business Analyst
 - Target market: Canada
 - Timeline: 7 days
-- Current industry focus: Retail
+- Current industry focus: Healthcare
 - Primary stack: SQL + Power BI
 
 ## Repo Structure
@@ -38,4 +38,4 @@ Build proof of work for a Canadian industry focus, publish visible project work,
 
 ## Next Step
 
-Start with dataset selection for the retail industry in Canada.
+Start with dataset selection for the healthcare industry in Canada.

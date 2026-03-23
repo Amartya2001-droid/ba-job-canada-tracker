@@ -4,12 +4,12 @@
 
 - Finalize target industry.
 - Set up tracking repository.
-- Define role narrative for Canada.
+- Define healthcare-focused role narrative for Canada.
 
 ## Day 2
 
 - Select 2 Canadian datasets.
-- Write project briefs.
+- Write healthcare project briefs.
 - Define KPIs and business questions.
 
 ## Day 3

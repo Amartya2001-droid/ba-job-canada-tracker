@@ -4,8 +4,8 @@ Create one folder per project.
 
 Suggested structure:
 
-- `project-01-consumer-spending-trends/`
-- `project-02-retail-sales-dashboard/`
+- `project-01-canadian-health-wait-times/`
+- `project-02-hospital-capacity-dashboard/`
 
 Each project should include:
 
