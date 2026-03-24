@@ -7,6 +7,14 @@
 - [x] Pick primary tool stack: SQL + Power BI
 - [x] Choose 2 Canadian datasets
 
+## Day 2
+
+- [x] Create data workspace structure
+- [x] Create starter SQL workspace
+- [ ] Download source extracts
+- [ ] Inspect real columns and update SQL templates
+- [ ] Build first cleaned outputs
+
 ## Notes
 
 Use this file as the single source of truth for daily momentum, blockers, and wins.

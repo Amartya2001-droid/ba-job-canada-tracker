@@ -1,0 +1,32 @@
+-- Project 1: KPI and analysis starter queries
+-- Replace table and column names after inspecting the real file.
+
+-- 1. Service-type comparison
+-- SELECT
+--   service_type,
+--   percentile_label,
+--   AVG(value) AS avg_wait_time
+-- FROM wait_times_raw
+-- WHERE geography = 'Canada'
+-- GROUP BY service_type, percentile_label
+-- ORDER BY service_type, percentile_label;
+
+-- 2. Highest-delay services
+-- SELECT
+--   service_type,
+--   MAX(value) AS max_wait_time
+-- FROM wait_times_raw
+-- WHERE geography = 'Canada'
+-- GROUP BY service_type
+-- ORDER BY max_wait_time DESC;
+
+-- 3. KPI-ready output for Power BI
+-- SELECT
+--   service_type,
+--   MAX(CASE WHEN percentile_label = '50th percentile' THEN value END) AS p50_wait,
+--   MAX(CASE WHEN percentile_label = '90th percentile' THEN value END) AS p90_wait,
+--   MAX(CASE WHEN percentile_label = '95th percentile' THEN value END) AS p95_wait
+-- FROM wait_times_raw
+-- WHERE geography = 'Canada'
+-- GROUP BY service_type
+-- ORDER BY p90_wait DESC;

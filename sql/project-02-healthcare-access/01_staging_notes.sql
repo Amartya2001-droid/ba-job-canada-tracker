@@ -1,0 +1,26 @@
+-- Project 2: Canadian Healthcare Access Dashboard
+-- Sources:
+--   1. Statistics Canada Open Database of Healthcare Facilities (ODHF)
+--   2. Statistics Canada Table 17-10-0157-01
+--
+-- Update the table definitions after downloading the actual files.
+
+-- Suggested staging tables
+-- CREATE TABLE facilities_raw (
+--   facility_name TEXT,
+--   facility_type TEXT,
+--   province TEXT,
+--   city TEXT
+-- );
+--
+-- CREATE TABLE population_raw (
+--   geography TEXT,
+--   population_year INTEGER,
+--   population_value NUMERIC
+-- );
+
+-- Suggested checks
+-- SELECT COUNT(*) FROM facilities_raw;
+-- SELECT DISTINCT facility_type FROM facilities_raw ORDER BY facility_type;
+-- SELECT DISTINCT province FROM facilities_raw ORDER BY province;
+-- SELECT COUNT(*) FROM population_raw;

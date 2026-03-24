@@ -1,0 +1,21 @@
+-- Project 1: Canadian Healthcare Wait Times Analysis
+-- Source: Statistics Canada Table 13-10-0701-01
+--
+-- Update this file after downloading the real extract.
+-- Replace placeholder column names with the actual table fields.
+
+-- Suggested staging table shape
+-- CREATE TABLE wait_times_raw (
+--   ref_date TEXT,
+--   geography TEXT,
+--   service_type TEXT,
+--   percentile_label TEXT,
+--   unit TEXT,
+--   value NUMERIC
+-- );
+
+-- Suggested checks
+-- SELECT COUNT(*) FROM wait_times_raw;
+-- SELECT DISTINCT geography FROM wait_times_raw ORDER BY geography;
+-- SELECT DISTINCT service_type FROM wait_times_raw ORDER BY service_type;
+-- SELECT DISTINCT percentile_label FROM wait_times_raw ORDER BY percentile_label;

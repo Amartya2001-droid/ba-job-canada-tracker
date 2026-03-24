@@ -1,0 +1,31 @@
+-- Project 2: KPI and analysis starter queries
+-- Replace table and column names after inspecting the real extracts.
+
+-- 1. Facility counts by province and type
+-- SELECT
+--   province,
+--   facility_type,
+--   COUNT(*) AS facility_count
+-- FROM facilities_raw
+-- GROUP BY province, facility_type
+-- ORDER BY province, facility_type;
+
+-- 2. Total facilities by province
+-- SELECT
+--   province,
+--   COUNT(*) AS total_facilities
+-- FROM facilities_raw
+-- GROUP BY province
+-- ORDER BY total_facilities DESC;
+
+-- 3. Coverage KPI for Power BI
+-- SELECT
+--   f.province,
+--   COUNT(*) AS total_facilities,
+--   p.population_value,
+--   ROUND(COUNT(*) * 100000.0 / NULLIF(p.population_value, 0), 2) AS facilities_per_100k
+-- FROM facilities_raw f
+-- JOIN population_raw p
+--   ON f.province = p.geography
+-- GROUP BY f.province, p.population_value
+-- ORDER BY facilities_per_100k DESC;

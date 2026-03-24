@@ -22,6 +22,7 @@ Build proof of work for a Canadian healthcare focus, publish visible project wor
 - `data/` - raw and processed data intake notes
 - `docs/` - planning notes, learning notes, and strategy documents
 - `projects/` - project briefs, dataset notes, and deliverables
+- `sql/` - starter SQL scripts for staging, cleaning, and KPI generation
 - `tracker/` - daily progress, applications, and networking logs
 - `templates/` - reusable templates for LinkedIn posts and project writeups
 
