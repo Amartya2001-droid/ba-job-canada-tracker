@@ -11,7 +11,7 @@
 
 - [x] Create data workspace structure
 - [x] Create starter SQL workspace
-- [ ] Download source extracts
+- [x] Download source extracts
 - [ ] Inspect real columns and update SQL templates
 - [ ] Build first cleaned outputs
 

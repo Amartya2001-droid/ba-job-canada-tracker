@@ -2,21 +2,61 @@
 -- Sources:
 --   1. Statistics Canada Open Database of Healthcare Facilities (ODHF)
 --   2. Statistics Canada Table 17-10-0157-01
+-- Raw archives:
+--   - data/raw/ODHF_v1.1.zip
+--   - data/raw/17100157-eng.zip
+-- Main CSV files:
+--   - data/raw/extracted/ODHF_v1.1/odhf_v1.1.csv
+--   - data/raw/extracted/17100157.csv
 --
--- Update the table definitions after downloading the actual files.
+-- Verified ODHF CSV header:
+-- index, facility_name, source_facility_type, odhf_facility_type, provider,
+-- unit, street_no, street_name, postal_code, city, province,
+-- source_format_str_address, CSDname, CSDuid, Pruid, latitude, longitude
+--
+-- Verified population CSV header:
+-- REF_DATE, GEO, DGUID, Age group, Gender, UOM, UOM_ID, SCALAR_FACTOR,
+-- SCALAR_ID, VECTOR, COORDINATE, VALUE, STATUS, SYMBOL, TERMINATED, DECIMALS
 
 -- Suggested staging tables
 -- CREATE TABLE facilities_raw (
+--   facility_index INTEGER,
 --   facility_name TEXT,
---   facility_type TEXT,
+--   source_facility_type TEXT,
+--   odhf_facility_type TEXT,
+--   provider TEXT,
+--   unit TEXT,
+--   street_no TEXT,
+--   street_name TEXT,
+--   postal_code TEXT,
+--   city TEXT,
 --   province TEXT,
---   city TEXT
+--   source_format_str_address TEXT,
+--   csd_name TEXT,
+--   csd_uid TEXT,
+--   pruid TEXT,
+--   latitude REAL,
+--   longitude REAL
 -- );
 --
 -- CREATE TABLE population_raw (
+--   ref_date TEXT,
 --   geography TEXT,
+--   dguid TEXT,
+--   age_group TEXT,
+--   gender TEXT,
+--   uom TEXT,
+--   uom_id INTEGER,
+--   scalar_factor TEXT,
+--   scalar_id INTEGER,
+--   vector_id TEXT,
+--   coordinate TEXT,
 --   population_year INTEGER,
---   population_value NUMERIC
+--   population_value NUMERIC,
+--   status TEXT,
+--   symbol TEXT,
+--   terminated TEXT,
+--   decimals INTEGER
 -- );
 
 -- Suggested checks

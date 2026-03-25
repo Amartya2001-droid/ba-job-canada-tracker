@@ -1,21 +1,37 @@
 -- Project 1: Canadian Healthcare Wait Times Analysis
 -- Source: Statistics Canada Table 13-10-0701-01
+-- Raw archive: data/raw/13100701-eng.zip
+-- Main CSV: data/raw/extracted/13100701.csv
 --
--- Update this file after downloading the real extract.
--- Replace placeholder column names with the actual table fields.
+-- Verified CSV header:
+-- REF_DATE, GEO, DGUID, Type of specialized service, Percentile,
+-- Characteristics, UOM, UOM_ID, SCALAR_FACTOR, SCALAR_ID, VECTOR,
+-- COORDINATE, VALUE, STATUS, SYMBOL, TERMINATED, DECIMALS
 
 -- Suggested staging table shape
 -- CREATE TABLE wait_times_raw (
 --   ref_date TEXT,
---   geography TEXT,
+--   geo TEXT,
+--   dguid TEXT,
 --   service_type TEXT,
 --   percentile_label TEXT,
---   unit TEXT,
---   value NUMERIC
+--   characteristic_label TEXT,
+--   uom TEXT,
+--   uom_id INTEGER,
+--   scalar_factor TEXT,
+--   scalar_id INTEGER,
+--   vector_id TEXT,
+--   coordinate TEXT,
+--   value NUMERIC,
+--   status TEXT,
+--   symbol TEXT,
+--   terminated TEXT,
+--   decimals INTEGER
 -- );
 
 -- Suggested checks
 -- SELECT COUNT(*) FROM wait_times_raw;
--- SELECT DISTINCT geography FROM wait_times_raw ORDER BY geography;
+-- SELECT DISTINCT geo FROM wait_times_raw ORDER BY geo;
 -- SELECT DISTINCT service_type FROM wait_times_raw ORDER BY service_type;
 -- SELECT DISTINCT percentile_label FROM wait_times_raw ORDER BY percentile_label;
+-- SELECT DISTINCT characteristic_label FROM wait_times_raw ORDER BY characteristic_label;

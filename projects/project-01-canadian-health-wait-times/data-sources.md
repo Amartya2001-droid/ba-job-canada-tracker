@@ -4,6 +4,7 @@
 
 1. Statistics Canada Table 13-10-0701-01
    - Source page: https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1310070101
+   - Direct file URL: https://www150.statcan.gc.ca/n1/tbl/csv/13100701-eng.zip
    - Dataset title: Waiting times at selected percentiles for specialized services, by type of service, household population aged 15 and over, Canada
    - Geography: Canada
    - Release date on source page: 2015-12-17
