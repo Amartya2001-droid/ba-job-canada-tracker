@@ -42,7 +42,8 @@ Build proof of work for a Canadian healthcare focus, publish visible project wor
 - Create one folder per project inside `projects/`.
 - Use `docs/healthcare-positioning.md` to keep resume, LinkedIn, and portfolio messaging aligned.
 - Use `docs/sql-powerbi-workflow.md` as the default build process for both projects.
+- Use `scripts/build_healthcare_sqlite.sh` to create a local SQLite database after the raw files are extracted.
 
 ## Next Step
 
-Day 1 is now complete enough to move into data collection for the healthcare projects.
+Build the first local SQLite database and start running the project queries against real extracted CSVs.

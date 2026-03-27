@@ -12,8 +12,15 @@
 - [x] Create data workspace structure
 - [x] Create starter SQL workspace
 - [x] Download source extracts
-- [ ] Inspect real columns and update SQL templates
+- [x] Inspect real columns and update SQL templates
 - [ ] Build first cleaned outputs
+
+## Day 3
+
+- [x] Recover repo into a healthy clone after local git metadata corruption
+- [x] Create SQLite bootstrap workflow
+- [ ] Load extracted CSVs into a local analytics database
+- [ ] Create cleaned views for analysis
 
 ## Notes
 
