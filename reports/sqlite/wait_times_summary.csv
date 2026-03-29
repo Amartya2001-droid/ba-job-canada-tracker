@@ -1,0 +1,4 @@
+service_type,p50_wait_weeks,p90_wait_weeks,p95_wait_weeks
+"Non-emergency surgeries",4.3,26.0,34.7
+"Specialist visits",4.3,17.3,26.0
+"Selected diagnostic tests",3.0,13.0,26.0

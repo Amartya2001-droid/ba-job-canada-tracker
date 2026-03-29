@@ -2,5 +2,5 @@
 
 | Project | Status | Current Focus | Next Action |
 | --- | --- | --- | --- |
-| Canadian Healthcare Wait Times Analysis | In progress | Verified raw files and mapped source schema | Create SQLite import workflow and load `13100701.csv` |
-| Canadian Healthcare Access Dashboard | In progress | Verified ODHF and population source schema | Create SQLite import workflow and load ODHF and population CSVs |
+| Canadian Healthcare Wait Times Analysis | In progress | SQLite build and report pipeline works locally | Turn the CSV output into a Power BI-ready visual layout |
+| Canadian Healthcare Access Dashboard | In progress | ODHF is available locally but province population extraction is still blocked | Materialize a reliable province-level population CSV for 2025 |

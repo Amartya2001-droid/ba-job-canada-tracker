@@ -19,8 +19,9 @@
 
 - [x] Recover repo into a healthy clone after local git metadata corruption
 - [x] Create SQLite bootstrap workflow
-- [ ] Load extracted CSVs into a local analytics database
-- [ ] Create cleaned views for analysis
+- [x] Build a working Project 1 SQLite flow for wait times
+- [x] Generate the first wait-times summary CSV
+- [ ] Resolve province-population extraction for Project 2
 
 ## Notes
 
@@ -31,3 +32,6 @@ Healthcare is the primary industry focus for this sprint. Retail can be revisite
 Selected datasets:
 - Statistics Canada Table 13-10-0701-01 for wait times analysis
 - Statistics Canada ODHF and Table 17-10-0157-01 for healthcare access and facility coverage analysis
+
+Current blocker:
+- Project 2 still needs a reliable local province-population extract before the coverage dashboard pipeline can run end to end.
