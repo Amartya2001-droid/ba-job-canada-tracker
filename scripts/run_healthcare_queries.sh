@@ -13,14 +13,13 @@ if [[ ! -f "$DB_PATH" ]]; then
 fi
 
 mkdir -p "$REPORTS_DIR"
-
-WAIT_COUNT=$(sqlite3 "$DB_PATH" "SELECT COUNT(*) FROM wait_times_raw;")
-POP_COUNT=$(sqlite3 "$DB_PATH" "SELECT COUNT(*) FROM population_raw;")
-FAC_COUNT=$(sqlite3 "$DB_PATH" "SELECT COUNT(*) FROM facilities_raw;")
+WAIT_COUNT=$(sqlite3 "$DB_PATH" "SELECT COUNT(*) FROM wait_times_csv;")
+POP_COUNT=$(sqlite3 "$DB_PATH" "SELECT COUNT(*) FROM population_csv;")
+FAC_COUNT=$(sqlite3 "$DB_PATH" "SELECT COUNT(*) FROM facilities_csv;")
 
 if [[ "$WAIT_COUNT" == "0" || "$POP_COUNT" == "0" || "$FAC_COUNT" == "0" ]]; then
-  echo "Database exists but one or more raw tables are empty."
-  echo "wait_times_raw=$WAIT_COUNT population_raw=$POP_COUNT facilities_raw=$FAC_COUNT"
+  echo "Database exists but one or more imported tables are empty."
+  echo "wait_times_csv=$WAIT_COUNT population_csv=$POP_COUNT facilities_csv=$FAC_COUNT"
   exit 1
 fi
 

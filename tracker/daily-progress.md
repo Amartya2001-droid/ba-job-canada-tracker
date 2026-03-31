@@ -13,7 +13,7 @@
 - [x] Create starter SQL workspace
 - [x] Download source extracts
 - [x] Inspect real columns and update SQL templates
-- [ ] Build first cleaned outputs
+- [x] Build first cleaned outputs
 
 ## Day 3
 
@@ -21,7 +21,9 @@
 - [x] Create SQLite bootstrap workflow
 - [x] Build a working Project 1 SQLite flow for wait times
 - [x] Generate the first wait-times summary CSV
-- [ ] Resolve province-population extraction for Project 2
+- [x] Extract a province-level 2025 population CSV for Project 2
+- [x] Build the full healthcare SQLite database locally
+- [x] Generate the first healthcare facility coverage CSV
 
 ## Notes
 
@@ -33,5 +35,6 @@ Selected datasets:
 - Statistics Canada Table 13-10-0701-01 for wait times analysis
 - Statistics Canada ODHF and Table 17-10-0157-01 for healthcare access and facility coverage analysis
 
-Current blocker:
-- Project 2 still needs a reliable local province-population extract before the coverage dashboard pipeline can run end to end.
+Current state:
+- Project 1 and Project 2 both have working SQLite-based report generation in the recovered repo.
+- The current Project 2 population extract produces a usable province comparison file, but Ontario still needs special handling because the source table does not expose a simple province-level Ontario row in the same way as most other provinces.
