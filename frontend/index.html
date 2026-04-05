@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Healthcare BA Tracker Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Canada Healthcare BA Sprint</p>
+          <h1>Proof of work, not just promises.</h1>
+          <p class="hero-text">
+            This dashboard turns the repo into a visual progress board for the
+            healthcare-focused Business Analyst sprint: projects, outputs,
+            application assets, and the local commit trail.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="../docs/one-page-resume-draft.md"
+              >Open Resume Draft</a
+            >
+            <a class="button secondary" href="../tracker/first-five-applications.md"
+              >Open Application Worksheet</a
+            >
+          </div>
+        </div>
+        <aside class="hero-panel">
+          <div class="panel-label">Current Focus</div>
+          <div class="panel-value">Healthcare</div>
+          <ul class="hero-points">
+            <li>2 working SQLite project pipelines</li>
+            <li>2 recruiter-facing project narratives</li>
+            <li>Resume, LinkedIn, interview, and application assets</li>
+          </ul>
+        </aside>
+      </header>
+
+      <main class="content-grid">
+        <section class="card stats-card">
+          <div class="section-heading">
+            <p class="eyebrow">Sprint Snapshot</p>
+            <h2>What’s already done</h2>
+          </div>
+          <div class="stat-grid">
+            <article class="stat">
+              <span class="stat-number">2</span>
+              <span class="stat-label">Healthcare Projects</span>
+            </article>
+            <article class="stat">
+              <span class="stat-number">11</span>
+              <span class="stat-label">Local Commits in Recovered Repo</span>
+            </article>
+            <article class="stat">
+              <span class="stat-number">2</span>
+              <span class="stat-label">CSV Outputs Ready for Power BI</span>
+            </article>
+            <article class="stat">
+              <span class="stat-number">1</span>
+              <span class="stat-label">Primary Industry Story</span>
+            </article>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="section-heading">
+            <p class="eyebrow">Project 1</p>
+            <h2>Wait Times Analysis</h2>
+          </div>
+          <p class="section-text">
+            Statistics Canada wait-time data was transformed into a compact
+            service comparison that highlights median vs long-tail access
+            pressure.
+          </p>
+          <div class="mini-metrics">
+            <div class="metric">
+              <span class="metric-label">Worst p95 Delay</span>
+              <strong>34.7 weeks</strong>
+              <span class="metric-note">Non-emergency surgeries</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Other p95 Delays</span>
+              <strong>26.0 weeks</strong>
+              <span class="metric-note">Specialist visits, diagnostics</span>
+            </div>
+          </div>
+          <div class="bar-chart" aria-label="Wait time comparison chart">
+            <div class="bar-row">
+              <span>Non-emergency surgeries</span>
+              <div class="bar-track"><div class="bar fill-100"></div></div>
+              <strong>34.7</strong>
+            </div>
+            <div class="bar-row">
+              <span>Specialist visits</span>
+              <div class="bar-track"><div class="bar fill-75"></div></div>
+              <strong>26.0</strong>
+            </div>
+            <div class="bar-row">
+              <span>Selected diagnostic tests</span>
+              <div class="bar-track"><div class="bar fill-75"></div></div>
+              <strong>26.0</strong>
+            </div>
+          </div>
+          <div class="resource-links">
+            <a href="../reports/sqlite/wait_times_summary.csv">CSV Output</a>
+            <a href="../projects/project-01-canadian-health-wait-times/insights.md"
+              >Insights</a
+            >
+            <a href="../templates/linkedin-post-project-01.md">LinkedIn Draft</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="section-heading">
+            <p class="eyebrow">Project 2</p>
+            <h2>Healthcare Access Coverage</h2>
+          </div>
+          <p class="section-text">
+            Healthcare facilities were combined with filtered 2025 population
+            data to create a province-level access coverage comparison.
+          </p>
+          <div class="mini-metrics">
+            <div class="metric">
+              <span class="metric-label">Highest Coverage</span>
+              <strong>52.01</strong>
+              <span class="metric-note">Prince Edward Island</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Lowest Coverage</span>
+              <strong>5.91</strong>
+              <span class="metric-note">Alberta</span>
+            </div>
+          </div>
+          <div class="bar-chart" aria-label="Facility coverage comparison chart">
+            <div class="bar-row">
+              <span>Prince Edward Island</span>
+              <div class="bar-track"><div class="bar teal fill-100"></div></div>
+              <strong>52.01</strong>
+            </div>
+            <div class="bar-row">
+              <span>Saskatchewan</span>
+              <div class="bar-track"><div class="bar teal fill-60"></div></div>
+              <strong>31.02</strong>
+            </div>
+            <div class="bar-row">
+              <span>British Columbia</span>
+              <div class="bar-track"><div class="bar teal fill-44"></div></div>
+              <strong>23.10</strong>
+            </div>
+            <div class="bar-row">
+              <span>Alberta</span>
+              <div class="bar-track"><div class="bar teal fill-12"></div></div>
+              <strong>5.91</strong>
+            </div>
+          </div>
+          <p class="data-note">
+            Data note: Ontario still needs special handling before final
+            dashboard polish.
+          </p>
+          <div class="resource-links">
+            <a href="../reports/sqlite/province_facility_coverage.csv">CSV Output</a>
+            <a href="../projects/project-02-healthcare-access-dashboard/insights.md"
+              >Insights</a
+            >
+            <a href="../templates/linkedin-post-project-02.md">LinkedIn Draft</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="section-heading">
+            <p class="eyebrow">Portfolio Assets</p>
+            <h2>Submission-Ready Material</h2>
+          </div>
+          <div class="checklist-grid">
+            <div class="check-item">
+              <strong>Resume Draft</strong>
+              <p>One-page healthcare BA draft ready for refinement.</p>
+              <a href="../docs/one-page-resume-draft.md">Open</a>
+            </div>
+            <div class="check-item">
+              <strong>Interview Q&A</strong>
+              <p>Project-specific answers and stakeholder framing.</p>
+              <a href="../docs/interview-qa.md">Open</a>
+            </div>
+            <div class="check-item">
+              <strong>Power BI Specs</strong>
+              <p>Layout guidance for both dashboards.</p>
+              <a href="../docs/powerbi-dashboard-specs.md">Open</a>
+            </div>
+            <div class="check-item">
+              <strong>Cover Note Variants</strong>
+              <p>Three variants for healthcare, public sector, and general BA roles.</p>
+              <a href="../templates/cover-note-variants.md">Open</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="section-heading">
+            <p class="eyebrow">Execution Layer</p>
+            <h2>Next Actions</h2>
+          </div>
+          <ol class="action-list">
+            <li>Build the two Power BI pages using the checklist and specs.</li>
+            <li>Fill the first five target roles in the application worksheet.</li>
+            <li>Use the LinkedIn drafts once dashboard screenshots are exported.</li>
+            <li>Practice the 60-second and 90-second project walkthroughs.</li>
+          </ol>
+          <div class="resource-links">
+            <a href="../docs/powerbi-build-checklist.md">Build Checklist</a>
+            <a href="../tracker/first-five-applications.md">First 5 Applications</a>
+            <a href="../docs/job-search-rhythm.md">Weekly Rhythm</a>
+          </div>
+        </section>
+
+        <section class="card full-span">
+          <div class="section-heading">
+            <p class="eyebrow">Commit Trail</p>
+            <h2>Recovered Repo Progress</h2>
+          </div>
+          <div class="timeline">
+            <article class="timeline-item">
+              <span class="timeline-sha">39574d9</span>
+              <div>
+                <strong>Resume draft and application customization kit</strong>
+                <p>One-page resume draft, cover-note variants, application checklist.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <span class="timeline-sha">aebeddb</span>
+              <div>
+                <strong>Interview prep and first application worksheet</strong>
+                <p>Interview answers, story template, first 5 applications worksheet.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <span class="timeline-sha">c34493b</span>
+              <div>
+                <strong>Job search rhythm and interview walkthroughs</strong>
+                <p>Weekly operating rhythm plus 30/60/90-second walkthroughs.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <span class="timeline-sha">d947be6</span>
+              <div>
+                <strong>Portfolio packaging</strong>
+                <p>Project insights, Power BI specs, resume bullets, LinkedIn drafts.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <span class="timeline-sha">a34eb5e</span>
+              <div>
+                <strong>Healthcare coverage pipeline unblocked</strong>
+                <p>Filtered population extraction and first province coverage CSV.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <span class="timeline-sha">9a01568</span>
+              <div>
+                <strong>Working wait-times pipeline</strong>
+                <p>SQLite build plus first wait-times summary report.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
