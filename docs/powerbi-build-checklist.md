@@ -1,5 +1,7 @@
 # Power BI Build Checklist
 
+Use this together with `docs/powerbi-implementation-guide.md`.
+
 ## Project 1: Wait Times Dashboard
 
 ### Data Setup
@@ -22,6 +24,7 @@
 - Use healthcare-friendly colors with strong contrast
 - Ensure labels are readable in a screenshot
 - Export one clean image for LinkedIn and one PDF for portfolio use
+- Confirm the insight text mentions the `34.7` week p95 delay
 
 ## Project 2: Healthcare Access Dashboard
 
@@ -44,3 +47,4 @@
 - Keep the message focused on access coverage, not quality of care
 - Make the normalized metric the hero visual
 - Export one screenshot and one PDF-ready page
+- Keep the Ontario caveat visible in the footer note
