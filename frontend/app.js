@@ -1,5 +1,166 @@
-const title = document.querySelector("title");
+const datasets = {
+  "wait-times": {
+    label: "Wait times summary",
+    url: "/reports/sqlite/wait_times_summary.csv",
+    summary: (rows) => {
+      const sorted = [...rows].sort(
+        (a, b) => Number(b.p95_wait_weeks) - Number(a.p95_wait_weeks),
+      );
+      const highest = sorted[0];
+      return [
+        ["Rows", rows.length],
+        ["Highest p95", `${highest.p95_wait_weeks} weeks`],
+        ["Service", highest.service_type],
+      ];
+    },
+  },
+  "facility-coverage": {
+    label: "Facility coverage",
+    url: "/reports/sqlite/province_facility_coverage.csv",
+    summary: (rows) => {
+      const sorted = [...rows].sort(
+        (a, b) => Number(b.facilities_per_100k) - Number(a.facilities_per_100k),
+      );
+      const highest = sorted[0];
+      const lowest = sorted[sorted.length - 1];
+      return [
+        ["Rows", rows.length],
+        ["Highest", highest.geography],
+        ["Lowest", lowest.geography],
+      ];
+    },
+  },
+};
 
-if (title) {
-  title.textContent = "Healthcare BA Tracker Dashboard";
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function parseCsv(text) {
+  const rows = [];
+  let cell = "";
+  let row = [];
+  let inQuotes = false;
+
+  for (let i = 0; i < text.length; i += 1) {
+    const char = text[i];
+    const next = text[i + 1];
+
+    if (char === '"' && next === '"') {
+      cell += '"';
+      i += 1;
+    } else if (char === '"') {
+      inQuotes = !inQuotes;
+    } else if (char === "," && !inQuotes) {
+      row.push(cell);
+      cell = "";
+    } else if ((char === "\n" || char === "\r") && !inQuotes) {
+      if (cell || row.length) {
+        row.push(cell);
+        rows.push(row);
+        row = [];
+        cell = "";
+      }
+      if (char === "\r" && next === "\n") {
+        i += 1;
+      }
+    } else {
+      cell += char;
+    }
+  }
+
+  if (cell || row.length) {
+    row.push(cell);
+    rows.push(row);
+  }
+
+  const [headers, ...values] = rows;
+  if (!headers) {
+    return [];
+  }
+
+  return values
+    .filter((valueRow) => valueRow.some(Boolean))
+    .map((valueRow) =>
+      Object.fromEntries(headers.map((header, index) => [header, valueRow[index] ?? ""])),
+    );
+}
+
+function renderSummary(rows, config) {
+  const summary = document.querySelector("#data-summary");
+  if (!rows.length) {
+    summary.innerHTML = "";
+    return;
+  }
+
+  summary.innerHTML = config
+    .summary(rows)
+    .map(
+      ([label, value]) => `
+        <div class="summary-pill">
+          <span>${escapeHtml(label)}</span>
+          <strong>${escapeHtml(value)}</strong>
+        </div>
+      `,
+    )
+    .join("");
+}
+
+function renderTable(rows) {
+  const table = document.querySelector("#data-table");
+  if (!rows.length) {
+    table.innerHTML = "<tbody><tr><td>No rows found.</td></tr></tbody>";
+    return;
+  }
+
+  const headers = Object.keys(rows[0]);
+  table.innerHTML = `
+    <thead>
+      <tr>${headers.map((header) => `<th>${escapeHtml(header)}</th>`).join("")}</tr>
+    </thead>
+    <tbody>
+      ${rows
+        .map(
+          (row) => `
+            <tr>
+              ${headers.map((header) => `<td>${escapeHtml(row[header])}</td>`).join("")}
+            </tr>
+          `,
+        )
+        .join("")}
+    </tbody>
+  `;
+}
+
+async function loadDataset(key) {
+  const config = datasets[key];
+  const table = document.querySelector("#data-table");
+  const summary = document.querySelector("#data-summary");
+
+  table.innerHTML = "<tbody><tr><td>Loading...</td></tr></tbody>";
+  summary.innerHTML = "";
+
+  try {
+    const response = await fetch(config.url);
+    if (!response.ok) {
+      throw new Error(`Could not load ${config.url}`);
+    }
+    const rows = parseCsv(await response.text());
+    renderSummary(rows, config);
+    renderTable(rows);
+  } catch (error) {
+    table.innerHTML = `<tbody><tr><td>${escapeHtml(error.message)}</td></tr></tbody>`;
+  }
+}
+
+const select = document.querySelector("#dataset-select");
+
+if (select) {
+  select.addEventListener("change", (event) => loadDataset(event.target.value));
+  loadDataset(select.value);
 }
