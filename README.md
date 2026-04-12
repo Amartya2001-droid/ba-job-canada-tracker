@@ -4,7 +4,15 @@ This repository tracks a 7-day sprint to become job-ready for a fresher Business
 
 ## Goal
 
-Build proof of work for a Canadian healthcare focus, publish visible project work, and track targeted applications.
+Build proof of work for a Canadian healthcare focus, turn public data into portfolio-ready analysis, and track targeted applications.
+
+## Current Portfolio Snapshot
+
+- Built 2 healthcare-focused analysis projects with Canadian public data.
+- Generated 2 SQLite-backed CSV outputs ready for Power BI.
+- Added a local frontend dashboard to preview project progress and explore report outputs.
+- Drafted recruiter-facing assets including resume bullets, interview stories, cover-note variants, and dashboard build notes.
+- Maintained a commit trail so the repo shows consistent project progress.
 
 ## Sprint Focus
 
@@ -17,22 +25,40 @@ Build proof of work for a Canadian healthcare focus, publish visible project wor
   - Statistics Canada Table 13-10-0701-01 for healthcare wait times
   - Statistics Canada ODHF + Table 17-10-0157-01 for facility access analysis
 
+## Dashboard Preview
+
+Run the local dashboard from the repository root:
+
+```bash
+./scripts/serve_frontend.sh 4174
+```
+
+Then open:
+
+```text
+http://127.0.0.1:4174/frontend/index.html
+```
+
+The frontend includes project summaries, direct links to portfolio assets, and a live CSV explorer that reads files from `reports/sqlite/`.
+
 ## Repo Structure
 
 - `data/` - raw and processed data intake notes
 - `docs/` - planning notes, learning notes, and strategy documents
+- `frontend/` - local portfolio dashboard for browsing project progress and CSV outputs
 - `projects/` - project briefs, dataset notes, and deliverables
+- `reports/` - generated CSV outputs for analysis and dashboarding
 - `sql/` - starter SQL scripts for staging, cleaning, and KPI generation
 - `tracker/` - daily progress, applications, and networking logs
 - `templates/` - reusable templates for LinkedIn posts and project writeups
 
 ## Immediate Priorities
 
-1. Finalize one target industry.
-2. Select 2 Canadian datasets.
-3. Build 2 portfolio projects aligned to that industry.
-4. Post project breakdowns on LinkedIn.
-5. Apply only to jobs with 70%+ stack overlap.
+1. Convert the SQLite outputs into two Power BI pages.
+2. Add screenshots or exports back into the repo once the Power BI pages are built.
+3. Tighten the Ontario handling note for the healthcare access project.
+4. Keep the frontend dashboard updated as the portfolio homepage.
+5. Apply only to jobs with 70%+ stack overlap once the project artifacts are polished.
 
 ## How We Will Use This Repo
 
@@ -46,4 +72,4 @@ Build proof of work for a Canadian healthcare focus, publish visible project wor
 
 ## Next Step
 
-Build the first local SQLite database and start running the project queries against real extracted CSVs.
+Build the Power BI dashboard pages from `docs/powerbi-implementation-guide.md`, using the generated files in `reports/sqlite/` as the source outputs.
