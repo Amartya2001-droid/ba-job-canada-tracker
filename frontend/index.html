@@ -254,13 +254,27 @@
             hardcoded summaries.
           </p>
           <div class="data-toolbar">
-            <label for="dataset-select">Choose output</label>
-            <select id="dataset-select">
-              <option value="wait-times">Wait times summary</option>
-              <option value="facility-coverage">Facility coverage</option>
-            </select>
+            <div class="field-group">
+              <label for="dataset-select">Choose output</label>
+              <select id="dataset-select">
+                <option value="wait-times">Wait times summary</option>
+                <option value="facility-coverage">Facility coverage</option>
+              </select>
+            </div>
+            <div class="field-group search-field">
+              <label for="dataset-search">Search table</label>
+              <input
+                id="dataset-search"
+                type="search"
+                placeholder="Try Alberta, surgery, p95..."
+              />
+            </div>
+            <a id="dataset-download" class="button mini" href="/reports/sqlite/wait_times_summary.csv"
+              >Download CSV</a
+            >
           </div>
           <div id="data-summary" class="data-summary"></div>
+          <p id="data-count" class="data-count"></p>
           <div class="table-shell">
             <table id="data-table"></table>
           </div>

@@ -32,6 +32,9 @@ const datasets = {
   },
 };
 
+let activeRows = [];
+let activeConfig = datasets["wait-times"];
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -113,6 +116,11 @@ function renderSummary(rows, config) {
 
 function renderTable(rows) {
   const table = document.querySelector("#data-table");
+  const count = document.querySelector("#data-count");
+  if (count) {
+    count.textContent = `${rows.length} row${rows.length === 1 ? "" : "s"} shown`;
+  }
+
   if (!rows.length) {
     table.innerHTML = "<tbody><tr><td>No rows found.</td></tr></tbody>";
     return;
@@ -137,13 +145,38 @@ function renderTable(rows) {
   `;
 }
 
+function filterRows(rows, searchTerm) {
+  const query = searchTerm.trim().toLowerCase();
+  if (!query) {
+    return rows;
+  }
+
+  return rows.filter((row) =>
+    Object.values(row).some((value) => String(value).toLowerCase().includes(query)),
+  );
+}
+
+function renderActiveDataset() {
+  const search = document.querySelector("#dataset-search");
+  renderTable(filterRows(activeRows, search?.value ?? ""));
+}
+
 async function loadDataset(key) {
   const config = datasets[key];
   const table = document.querySelector("#data-table");
   const summary = document.querySelector("#data-summary");
+  const count = document.querySelector("#data-count");
+  const download = document.querySelector("#dataset-download");
 
   table.innerHTML = "<tbody><tr><td>Loading...</td></tr></tbody>";
   summary.innerHTML = "";
+  if (count) {
+    count.textContent = "";
+  }
+  if (download) {
+    download.href = config.url;
+  }
+  activeConfig = config;
 
   try {
     const response = await fetch(config.url);
@@ -151,16 +184,22 @@ async function loadDataset(key) {
       throw new Error(`Could not load ${config.url}`);
     }
     const rows = parseCsv(await response.text());
-    renderSummary(rows, config);
-    renderTable(rows);
+    activeRows = rows;
+    renderSummary(activeRows, activeConfig);
+    renderActiveDataset();
   } catch (error) {
     table.innerHTML = `<tbody><tr><td>${escapeHtml(error.message)}</td></tr></tbody>`;
   }
 }
 
 const select = document.querySelector("#dataset-select");
+const search = document.querySelector("#dataset-search");
 
 if (select) {
   select.addEventListener("change", (event) => loadDataset(event.target.value));
   loadDataset(select.value);
+}
+
+if (search) {
+  search.addEventListener("input", renderActiveDataset);
 }

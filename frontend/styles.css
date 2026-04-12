@@ -355,11 +355,23 @@ h2 {
   margin: 18px 0;
 }
 
-.data-toolbar label {
-  font-weight: 800;
+.field-group {
+  display: grid;
+  gap: 6px;
 }
 
-.data-toolbar select {
+.field-group label {
+  font-weight: 800;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+.search-field {
+  flex: 1 1 280px;
+}
+
+.data-toolbar select,
+.data-toolbar input {
   min-height: 42px;
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -367,6 +379,12 @@ h2 {
   color: var(--ink);
   padding: 0 16px;
   font: inherit;
+}
+
+.button.mini {
+  min-height: 42px;
+  align-self: end;
+  padding: 10px 16px;
 }
 
 .data-summary {
@@ -393,6 +411,12 @@ h2 {
   display: block;
   margin-top: 4px;
   font-size: 1.2rem;
+}
+
+.data-count {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0 0 10px;
 }
 
 .table-shell {
