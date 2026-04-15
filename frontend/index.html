@@ -14,15 +14,29 @@
   </head>
   <body>
     <div class="page-shell">
+      <nav class="top-nav" aria-label="Dashboard sections">
+        <a class="brand-mark" href="#top">Healthcare BA</a>
+        <div class="nav-links">
+          <a href="#projects">Projects</a>
+          <a href="#assets">Assets</a>
+          <a href="#outputs">Outputs</a>
+          <a href="#commits">Commits</a>
+        </div>
+      </nav>
+
       <header class="hero">
         <div class="hero-copy">
           <p class="eyebrow">Canada Healthcare BA Sprint</p>
-          <h1>Proof of work, not just promises.</h1>
+          <h1 id="top">Proof of work, not just promises.</h1>
           <p class="hero-text">
             This dashboard turns the repo into a visual progress board for the
             healthcare-focused Business Analyst sprint: projects, outputs,
             application assets, and the local commit trail.
           </p>
+          <div class="status-strip" aria-label="Portfolio readiness status">
+            <span>Portfolio homepage</span>
+            <strong>Frontend finish pass complete</strong>
+          </div>
           <div class="hero-actions">
             <a class="button primary" href="/docs/one-page-resume-draft.md"
               >Open Resume Draft</a
@@ -38,7 +52,7 @@
           <ul class="hero-points">
             <li>2 working SQLite project pipelines</li>
             <li>2 recruiter-facing project narratives</li>
-            <li>Resume, LinkedIn, interview, and application assets</li>
+            <li>Resume, interview, dashboard, and application assets</li>
           </ul>
         </aside>
       </header>
@@ -55,8 +69,8 @@
               <span class="stat-label">Healthcare Projects</span>
             </article>
             <article class="stat">
-              <span class="stat-number">11</span>
-              <span class="stat-label">Local Commits in Recovered Repo</span>
+              <span class="stat-number">25</span>
+              <span class="stat-label">Commits Before Final Frontend Polish</span>
             </article>
             <article class="stat">
               <span class="stat-number">2</span>
@@ -69,7 +83,36 @@
           </div>
         </section>
 
-        <section class="card">
+        <section class="card full-span">
+          <div class="section-heading">
+            <p class="eyebrow">Readiness Board</p>
+            <h2>What this portfolio can prove</h2>
+          </div>
+          <div class="readiness-grid">
+            <article class="readiness-card complete">
+              <span>01</span>
+              <strong>Industry focus</strong>
+              <p>Healthcare is the primary analyst story, with Canadian datasets and role-aligned business questions.</p>
+            </article>
+            <article class="readiness-card complete">
+              <span>02</span>
+              <strong>SQL evidence</strong>
+              <p>SQLite scripts generate repeatable outputs for wait-time and access-coverage analysis.</p>
+            </article>
+            <article class="readiness-card complete">
+              <span>03</span>
+              <strong>Business narrative</strong>
+              <p>Project briefs, insight notes, resume bullets, and interview answers translate the analysis into BA language.</p>
+            </article>
+            <article class="readiness-card next">
+              <span>04</span>
+              <strong>BI visuals</strong>
+              <p>Power BI specs are ready; the remaining step is building/exporting final dashboard screenshots.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="projects" class="card">
           <div class="section-heading">
             <p class="eyebrow">Project 1</p>
             <h2>Wait Times Analysis</h2>
@@ -113,7 +156,13 @@
             <a href="/projects/project-01-canadian-health-wait-times/insights.md"
               >Insights</a
             >
-            <a href="/templates/linkedin-post-project-01.md">LinkedIn Draft</a>
+            <button
+              class="link-button"
+              type="button"
+              data-copy="I analyzed Canadian healthcare wait-time data to compare median and long-tail delays across surgeries, specialist visits, and diagnostic tests."
+            >
+              Copy Pitch
+            </button>
           </div>
         </section>
 
@@ -169,11 +218,17 @@
             <a href="/projects/project-02-healthcare-access-dashboard/insights.md"
               >Insights</a
             >
-            <a href="/templates/linkedin-post-project-02.md">LinkedIn Draft</a>
+            <button
+              class="link-button"
+              type="button"
+              data-copy="I combined Canadian healthcare facility data with province-level population data to compare access coverage across regions."
+            >
+              Copy Pitch
+            </button>
           </div>
         </section>
 
-        <section class="card">
+        <section id="assets" class="card">
           <div class="section-heading">
             <p class="eyebrow">Portfolio Assets</p>
             <h2>Submission-Ready Material</h2>
@@ -215,8 +270,8 @@
               <a href="/templates/cover-note-variants.md">Open</a>
             </div>
             <div class="check-item">
-              <strong>LinkedIn Build Post</strong>
-              <p>A polished post about building the healthcare BA portfolio in public.</p>
+              <strong>Build-in-Public Draft</strong>
+              <p>An optional progress post for later, once screenshots are exported.</p>
               <a href="/docs/linkedin-building-in-public-post.md">Open</a>
             </div>
           </div>
@@ -244,6 +299,33 @@
         </section>
 
         <section class="card full-span">
+          <div class="section-heading">
+            <p class="eyebrow">Power BI Roadmap</p>
+            <h2>Final visual build queue</h2>
+          </div>
+          <div class="build-board">
+            <article>
+              <span class="board-status ready">Ready</span>
+              <strong>Wait Times Dashboard</strong>
+              <p>Use <code>wait_times_summary.csv</code> for service comparison, p50/p90/p95 cards, and long-tail delay story.</p>
+              <a href="/docs/powerbi-implementation-guide.md">Build Guide</a>
+            </article>
+            <article>
+              <span class="board-status caveat">Caveat</span>
+              <strong>Access Coverage Dashboard</strong>
+              <p>Use <code>province_facility_coverage.csv</code>; keep the Ontario caveat visible until the source handling is finalized.</p>
+              <a href="/docs/powerbi-visual-mockups.md">Visual Mockups</a>
+            </article>
+            <article>
+              <span class="board-status next">Next</span>
+              <strong>Portfolio Screenshot Pack</strong>
+              <p>Export final dashboard images and place them back in the repo so applications can link to proof.</p>
+              <a href="/docs/powerbi-build-checklist.md">Checklist</a>
+            </article>
+          </div>
+        </section>
+
+        <section id="outputs" class="card full-span">
           <div class="section-heading">
             <p class="eyebrow">Live Outputs</p>
             <h2>CSV Explorer</h2>
@@ -280,12 +362,40 @@
           </div>
         </section>
 
-        <section class="card full-span">
+        <section id="commits" class="card full-span">
           <div class="section-heading">
             <p class="eyebrow">Commit Trail</p>
             <h2>Recovered Repo Progress</h2>
           </div>
           <div class="timeline">
+            <article class="timeline-item">
+              <span class="timeline-sha">c430988</span>
+              <div>
+                <strong>Tracker updated for dashboard progress</strong>
+                <p>Day 4 progress and portfolio status now reflect the frontend and BI-ready state.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <span class="timeline-sha">4765a99</span>
+              <div>
+                <strong>README refreshed with current portfolio status</strong>
+                <p>GitHub landing page now explains dashboard preview, outputs, and next priorities.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <span class="timeline-sha">ebfbe40</span>
+              <div>
+                <strong>CSV explorer controls</strong>
+                <p>Search, row counts, and direct downloads added to the live output table.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <span class="timeline-sha">6a4e282</span>
+              <div>
+                <strong>Live CSV explorer added</strong>
+                <p>Frontend reads the generated SQLite report outputs directly from the repo.</p>
+              </div>
+            </article>
             <article class="timeline-item">
               <span class="timeline-sha">39574d9</span>
               <div>
@@ -331,8 +441,14 @@
           </div>
         </section>
       </main>
+
+      <footer class="footer">
+        <p>Built as a Canadian healthcare Business Analyst proof-of-work sprint.</p>
+        <a href="#top">Back to top</a>
+      </footer>
     </div>
 
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
     <script src="/frontend/app.js"></script>
   </body>
 </html>

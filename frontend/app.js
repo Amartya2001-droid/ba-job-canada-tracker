@@ -34,6 +34,7 @@ const datasets = {
 
 let activeRows = [];
 let activeConfig = datasets["wait-times"];
+let toastTimeout;
 
 function escapeHtml(value) {
   return String(value)
@@ -161,15 +162,40 @@ function renderActiveDataset() {
   renderTable(filterRows(activeRows, search?.value ?? ""));
 }
 
+function showToast(message) {
+  const toast = document.querySelector("#toast");
+  if (!toast) {
+    return;
+  }
+
+  toast.textContent = message;
+  toast.classList.add("visible");
+  clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(() => toast.classList.remove("visible"), 2200);
+}
+
+async function copyText(value) {
+  try {
+    await navigator.clipboard.writeText(value);
+    showToast("Pitch copied to clipboard.");
+  } catch {
+    showToast("Copy failed. Select the text manually from the project card.");
+  }
+}
+
 async function loadDataset(key) {
   const config = datasets[key];
   const table = document.querySelector("#data-table");
   const summary = document.querySelector("#data-summary");
   const count = document.querySelector("#data-count");
   const download = document.querySelector("#dataset-download");
+  const search = document.querySelector("#dataset-search");
 
   table.innerHTML = "<tbody><tr><td>Loading...</td></tr></tbody>";
   summary.innerHTML = "";
+  if (search) {
+    search.value = "";
+  }
   if (count) {
     count.textContent = "";
   }
@@ -194,6 +220,7 @@ async function loadDataset(key) {
 
 const select = document.querySelector("#dataset-select");
 const search = document.querySelector("#dataset-search");
+const copyButtons = document.querySelectorAll("[data-copy]");
 
 if (select) {
   select.addEventListener("change", (event) => loadDataset(event.target.value));
@@ -203,3 +230,7 @@ if (select) {
 if (search) {
   search.addEventListener("input", renderActiveDataset);
 }
+
+copyButtons.forEach((button) => {
+  button.addEventListener("click", () => copyText(button.dataset.copy ?? ""));
+});
