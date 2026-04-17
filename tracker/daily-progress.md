@@ -34,6 +34,15 @@
 - [x] Add search, row counts, and download access to the CSV explorer
 - [x] Refresh the README so the GitHub landing page reflects current progress
 
+## Day 5
+
+- [x] Finish the frontend portfolio dashboard and push the polished UI
+- [x] Add a Power BI export pack with final screenshot and PDF naming rules
+- [x] Create `assets/screenshots/` as the landing folder for final dashboard exports
+- [x] Link the export pack and screenshot folder from the frontend dashboard
+- [ ] Build/export the actual Power BI dashboard screenshots
+- [ ] Decide whether to resolve or explicitly exclude the Ontario caveat in the access dashboard
+
 ## Notes
 
 Use this file as the single source of truth for daily momentum, blockers, and wins.
@@ -47,5 +56,5 @@ Selected datasets:
 Current state:
 - Project 1 and Project 2 both have working SQLite-based report generation in the recovered repo.
 - The frontend dashboard now gives a quick local preview of the portfolio story and generated CSV outputs.
-- Power BI build guidance exists, but the actual Power BI pages still need to be built/exported.
+- Power BI build guidance and export packaging now exist, but the actual Power BI pages still need to be built/exported.
 - The current Project 2 population extract produces a usable province comparison file, but Ontario still needs special handling because the source table does not expose a simple province-level Ontario row in the same way as most other provinces.
