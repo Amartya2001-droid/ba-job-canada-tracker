@@ -69,6 +69,7 @@ The frontend includes project summaries, direct links to portfolio assets, and a
 - Use `docs/healthcare-positioning.md` to keep resume, LinkedIn, and portfolio messaging aligned.
 - Use `docs/sql-powerbi-workflow.md` as the default build process for both projects.
 - Use `scripts/build_healthcare_sqlite.sh` to create a local SQLite database after the raw files are extracted.
+- Use `scripts/check_healthcare_outputs.sh` after report generation to confirm the expected wait-time and province coverage outputs are present.
 
 ## Next Step
 
