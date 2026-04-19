@@ -53,7 +53,7 @@ Use these mockups as a simple page-building reference while working in Power BI 
 | Alberta                |■■■                                                     |
 +-----------------------------------------------+----------------------------------+
 | Province table                                 | Data note                        |
-| Province | Facilities | Population | Per 100k  | Ontario requires extra source   |
+| Province | Facilities | Population | Per 100k  | Ontario source label normalized |
 | ...                                           | handling before final polish.    |
 +-----------------------------------------------+----------------------------------+
 ```

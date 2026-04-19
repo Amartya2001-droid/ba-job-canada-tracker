@@ -34,7 +34,7 @@ Before exporting, confirm the screenshot shows:
 - KPI card for highest coverage: `Prince Edward Island`
 - KPI card for lowest coverage: `Alberta`
 - Ranked bar chart by `facilities_per_100k`
-- Ontario caveat note until the source handling is finalized
+- Ontario source-normalization note
 
 Recommended file name:
 
@@ -62,7 +62,7 @@ Use this checklist before putting screenshots into the repo:
 - Both pages use the same color palette.
 - Both pages include the business question or source note.
 - The access dashboard does not overclaim quality of care; it only discusses coverage.
-- The Ontario caveat is visible on the access dashboard until resolved.
+- The Ontario source-normalization note is visible on the access dashboard.
 
 ## Application Use
 

@@ -3,7 +3,7 @@
 ## Key Findings
 
 - Prince Edward Island has the highest observed facility coverage in the current province-level output at 52.01 facilities per 100,000 residents.
-- Saskatchewan ranks second at 31.02, while Alberta is lowest in the current output at 5.91.
+- Saskatchewan ranks second at 31.02, Ontario is now included at 16.58, and Alberta is lowest in the current output at 5.91.
 - The spread between the highest and lowest provinces is large enough to support a strong regional access and resource-distribution story.
 
 ## Business Implications
@@ -14,7 +14,8 @@
 
 ## Data Note
 
-- Ontario needs special handling before final dashboard polish because the current source slice does not expose a simple province-level Ontario row in the same pattern as most other provinces.
+- Ontario is included after normalizing the source label `Ontario by Ontario Health Region` to province-level `Ontario`.
+- The dashboard should frame this as a source-normalization note, not a missing-data caveat.
 
 ## Recommended Story For Portfolio
 

@@ -31,7 +31,7 @@ Use this together with `docs/powerbi-implementation-guide.md`.
 ### Data Setup
 - Load `reports/sqlite/province_facility_coverage.csv`
 - Confirm numeric typing for `total_facilities`, `population_value`, and `facilities_per_100k`
-- Add a note that Ontario handling is still a source-specific caveat
+- Add a note that Ontario was normalized from the source label `Ontario by Ontario Health Region`
 
 ### Visual Build Order
 1. Add a title block with the business question
@@ -41,10 +41,10 @@ Use this together with `docs/powerbi-implementation-guide.md`.
    - total facilities represented
 3. Add a ranked bar chart by province
 4. Add a supporting table with province, facilities, population, and normalized rate
-5. Add a data note card explaining the coverage metric and Ontario caveat
+5. Add a data note card explaining the coverage metric and Ontario source normalization
 
 ### Final Check
 - Keep the message focused on access coverage, not quality of care
 - Make the normalized metric the hero visual
 - Export one screenshot and one PDF-ready page
-- Keep the Ontario caveat visible in the footer note
+- Keep the Ontario source-normalization note visible in the footer note

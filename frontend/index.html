@@ -204,14 +204,19 @@
               <strong>23.10</strong>
             </div>
             <div class="bar-row">
+              <span>Ontario</span>
+              <div class="bar-track"><div class="bar teal fill-32"></div></div>
+              <strong>16.58</strong>
+            </div>
+            <div class="bar-row">
               <span>Alberta</span>
               <div class="bar-track"><div class="bar teal fill-12"></div></div>
               <strong>5.91</strong>
             </div>
           </div>
           <p class="data-note">
-            Data note: Ontario still needs special handling before final
-            dashboard polish.
+            Data note: Ontario is included after normalizing the source label
+            "Ontario by Ontario Health Region" to province-level Ontario.
           </p>
           <div class="resource-links">
             <a href="/reports/sqlite/province_facility_coverage.csv">CSV Output</a>
@@ -316,9 +321,9 @@
               <a href="/docs/powerbi-implementation-guide.md">Build Guide</a>
             </article>
             <article>
-              <span class="board-status caveat">Caveat</span>
+              <span class="board-status ready">Ready</span>
               <strong>Access Coverage Dashboard</strong>
-              <p>Use <code>province_facility_coverage.csv</code>; keep the Ontario caveat visible until the source handling is finalized.</p>
+              <p>Use <code>province_facility_coverage.csv</code>; include the source-normalization note for Ontario in the footer.</p>
               <a href="/docs/powerbi-visual-mockups.md">Visual Mockups</a>
             </article>
             <article>

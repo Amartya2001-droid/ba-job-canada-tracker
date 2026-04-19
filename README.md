@@ -56,7 +56,7 @@ The frontend includes project summaries, direct links to portfolio assets, and a
 
 1. Convert the SQLite outputs into two Power BI pages.
 2. Add screenshots or exports back into the repo once the Power BI pages are built.
-3. Tighten the Ontario handling note for the healthcare access project.
+3. Build the final Power BI screenshots and save them in `assets/screenshots/`.
 4. Keep the frontend dashboard updated as the portfolio homepage.
 5. Apply only to jobs with 70%+ stack overlap once the project artifacts are polished.
 

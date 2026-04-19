@@ -60,7 +60,7 @@ Use this file to copy text directly into Power BI text boxes, subtitles, KPI lab
 
 ### Footer Data Note
 
-`Data note: Ontario needs extra source handling before final dashboard polish because the current population slice does not expose a simple province-level Ontario row in the same pattern as most other provinces.`
+`Data note: Ontario is included after normalizing the source label "Ontario by Ontario Health Region" to province-level Ontario.`
 
 ### Screenshot Caption Idea
 

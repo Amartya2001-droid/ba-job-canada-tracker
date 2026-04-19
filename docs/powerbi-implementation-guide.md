@@ -163,7 +163,7 @@ Supporting visual:
 Footer note:
 
 - Text box:
-  - `Current source handling requires extra review for Ontario before final dashboard polish.`
+  - `Ontario is included after normalizing the source label "Ontario by Ontario Health Region" to province-level Ontario.`
 
 ### Formatting
 

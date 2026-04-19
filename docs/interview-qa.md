@@ -22,7 +22,7 @@ I used SQL and SQLite to prepare the data, calculate KPIs, and generate summary 
 
 ## What Was A Challenge You Ran Into?
 
-One challenge was handling the healthcare population source because it was large and not perfectly aligned for a simple province-level comparison. I worked around that by building a filtered 2025 population extract for the specific dashboard use case, while also noting that Ontario needs special handling before final polish.
+One challenge was handling the healthcare population source because it was large and Ontario used a different source label. I handled that by building a filtered 2025 population extract and normalizing `Ontario by Ontario Health Region` to province-level `Ontario` so the dashboard comparison stayed consistent.
 
 ## How Would You Communicate Findings To A Non-Technical Stakeholder?
 

@@ -41,7 +41,7 @@
 - [x] Create `assets/screenshots/` as the landing folder for final dashboard exports
 - [x] Link the export pack and screenshot folder from the frontend dashboard
 - [ ] Build/export the actual Power BI dashboard screenshots
-- [ ] Decide whether to resolve or explicitly exclude the Ontario caveat in the access dashboard
+- [x] Resolve the Ontario source-label issue for the access dashboard extract
 
 ## Notes
 
@@ -57,4 +57,4 @@ Current state:
 - Project 1 and Project 2 both have working SQLite-based report generation in the recovered repo.
 - The frontend dashboard now gives a quick local preview of the portfolio story and generated CSV outputs.
 - Power BI build guidance and export packaging now exist, but the actual Power BI pages still need to be built/exported.
-- The current Project 2 population extract produces a usable province comparison file, but Ontario still needs special handling because the source table does not expose a simple province-level Ontario row in the same way as most other provinces.
+- The Project 2 population extract now includes Ontario by normalizing the source label `Ontario by Ontario Health Region` to province-level `Ontario`.

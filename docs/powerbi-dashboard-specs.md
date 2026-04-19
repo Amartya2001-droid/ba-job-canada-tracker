@@ -36,7 +36,7 @@ Canadian Healthcare Facility Coverage by Province
 - Ranked bar chart: province vs facilities per 100k
 - Table: province, total facilities, population, facilities per 100k
 - Stacked bar chart: province by facility type after the next enrichment step
-- Data note card explaining the Ontario handling caveat
+- Data note card explaining Ontario source-label normalization
 
 ### Filters
 - Province
