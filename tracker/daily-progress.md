@@ -43,6 +43,14 @@
 - [ ] Build/export the actual Power BI dashboard screenshots
 - [x] Resolve the Ontario source-label issue for the access dashboard extract
 
+## Day 6
+
+- [x] Resolve the Ontario source-label issue end-to-end in the extract, report, frontend, and docs
+- [x] Add a validation script for core healthcare report outputs
+- [x] Create a final 5-day finish plan for the remaining delivery window
+- [ ] Build and export the two final Power BI dashboard screenshots
+- [ ] Fill the first five target applications using the completed proof package
+
 ## Notes
 
 Use this file as the single source of truth for daily momentum, blockers, and wins.
@@ -58,3 +66,4 @@ Current state:
 - The frontend dashboard now gives a quick local preview of the portfolio story and generated CSV outputs.
 - Power BI build guidance and export packaging now exist, but the actual Power BI pages still need to be built/exported.
 - The Project 2 population extract now includes Ontario by normalizing the source label `Ontario by Ontario Health Region` to province-level `Ontario`.
+- A final 5-day finish plan now defines the remaining work: export visuals, tighten story, prepare applications, rehearse interviews, and apply selectively.

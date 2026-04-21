@@ -1,5 +1,7 @@
 # 7-Day Plan
 
+This was the original sprint outline. For the current closing stretch, use `docs/final-5-day-finish-plan.md`.
+
 ## Day 1
 
 - Finalize target industry.

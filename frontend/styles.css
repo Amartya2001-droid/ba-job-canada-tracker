@@ -306,8 +306,15 @@ h2 {
   gap: 14px;
 }
 
+.finish-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
 .readiness-card,
-.build-board article {
+.build-board article,
+.finish-card {
   min-height: 170px;
   padding: 18px;
   border: 1px solid var(--line);
@@ -349,9 +356,28 @@ h2 {
 }
 
 .readiness-card p,
-.build-board p {
+.build-board p,
+.finish-card p {
   color: var(--muted);
   margin-bottom: 0;
+}
+
+.finish-card span {
+  display: inline-flex;
+  margin-bottom: 14px;
+  color: var(--brand-deep);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
+}
+
+.finish-card strong {
+  display: block;
+  font-size: 1.02rem;
+}
+
+.finish-card.today {
+  background: linear-gradient(180deg, rgba(20, 123, 114, 0.12), white 45%);
+  border-color: rgba(20, 123, 114, 0.26);
 }
 
 .mini-metrics {
@@ -697,7 +723,8 @@ tr:last-child td {
   .mini-metrics,
   .checklist-grid,
   .readiness-grid,
-  .build-board {
+  .build-board,
+  .finish-grid {
     grid-template-columns: 1fr;
   }
 
