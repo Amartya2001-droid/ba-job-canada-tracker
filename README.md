@@ -54,6 +54,8 @@ The frontend includes project summaries, direct links to portfolio assets, and a
 
 ## Immediate Priorities
 
+Use `docs/final-5-day-finish-plan.md` for the current closing-stretch sequence.
+
 1. Convert the SQLite outputs into two Power BI pages.
 2. Add screenshots or exports back into the repo once the Power BI pages are built.
 3. Build the final Power BI screenshots and save them in `assets/screenshots/`.
