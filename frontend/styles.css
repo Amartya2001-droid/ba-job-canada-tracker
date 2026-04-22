@@ -312,6 +312,30 @@ h2 {
   gap: 14px;
 }
 
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.preview-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: white;
+}
+
+.preview-card img {
+  display: block;
+  width: 100%;
+  background: #f8f4ec;
+}
+
+.preview-card .resource-links {
+  margin: 0;
+  padding: 14px;
+}
+
 .readiness-card,
 .build-board article,
 .finish-card {
@@ -724,7 +748,8 @@ tr:last-child td {
   .checklist-grid,
   .readiness-grid,
   .build-board,
-  .finish-grid {
+  .finish-grid,
+  .preview-grid {
     grid-template-columns: 1fr;
   }
 

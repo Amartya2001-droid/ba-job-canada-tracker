@@ -4,8 +4,11 @@ As of April 20, 2026, the core healthcare BA repo is already in place: two worki
 
 ## Day 1: Export Visual Proof
 
+- Create repo-native preview visuals from the existing CSV outputs.
 - Build the two Power BI pages from the existing CSV outputs.
 - Export:
+  - `assets/screenshots/wait-times-dashboard-preview.svg`
+  - `assets/screenshots/access-coverage-dashboard-preview.svg`
   - `assets/screenshots/wait-times-dashboard.png`
   - `assets/screenshots/access-coverage-dashboard.png`
   - `assets/screenshots/healthcare-ba-portfolio.pdf`

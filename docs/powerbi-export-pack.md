@@ -6,9 +6,13 @@ Use this after building the two Power BI pages. The goal is to create assets tha
 
 Save final visuals here:
 
+- `assets/screenshots/wait-times-dashboard-preview.svg`
+- `assets/screenshots/access-coverage-dashboard-preview.svg`
 - `assets/screenshots/wait-times-dashboard.png`
 - `assets/screenshots/access-coverage-dashboard.png`
 - `assets/screenshots/healthcare-ba-portfolio.pdf`
+
+The SVG files are repo-native previews. The PNG and PDF files should come from the final Power BI export.
 
 ## Page 1: Wait Times Screenshot
 

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Canadian Healthcare Facility Coverage Dashboard Preview</title>
+  <desc id="desc">Static dashboard preview showing healthcare facilities per 100,000 residents by province.</desc>
+  <rect width="1400" height="900" fill="#f8f4ec"/>
+  <rect x="54" y="54" width="1292" height="792" rx="34" fill="#fffaf2" stroke="#ded6c8"/>
+  <text x="96" y="122" fill="#9f3f22" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="3">PROJECT 2</text>
+  <text x="96" y="174" fill="#172128" font-family="Arial, sans-serif" font-size="48" font-weight="800">Canadian Healthcare Facility Coverage by Province</text>
+  <text x="96" y="214" fill="#5f6f73" font-family="Arial, sans-serif" font-size="22">Facilities per 100,000 residents using ODHF and 2025 population output</text>
+
+  <rect x="96" y="262" width="350" height="142" rx="24" fill="#ffffff" stroke="#ded6c8"/>
+  <text x="126" y="310" fill="#5f6f73" font-family="Arial, sans-serif" font-size="20">Highest coverage</text>
+  <text x="126" y="363" fill="#172128" font-family="Arial, sans-serif" font-size="50" font-weight="800">52.01</text>
+  <text x="126" y="386" fill="#147b72" font-family="Arial, sans-serif" font-size="18">Prince Edward Island</text>
+
+  <rect x="486" y="262" width="350" height="142" rx="24" fill="#ffffff" stroke="#ded6c8"/>
+  <text x="516" y="310" fill="#5f6f73" font-family="Arial, sans-serif" font-size="20">Lowest coverage</text>
+  <text x="516" y="363" fill="#172128" font-family="Arial, sans-serif" font-size="50" font-weight="800">5.91</text>
+  <text x="516" y="386" fill="#147b72" font-family="Arial, sans-serif" font-size="18">Alberta</text>
+
+  <rect x="876" y="262" width="350" height="142" rx="24" fill="#ffffff" stroke="#ded6c8"/>
+  <text x="906" y="310" fill="#5f6f73" font-family="Arial, sans-serif" font-size="20">Ontario included</text>
+  <text x="906" y="363" fill="#172128" font-family="Arial, sans-serif" font-size="50" font-weight="800">16.58</text>
+  <text x="906" y="386" fill="#147b72" font-family="Arial, sans-serif" font-size="18">Source label normalized</text>
+
+  <text x="96" y="470" fill="#172128" font-family="Arial, sans-serif" font-size="30" font-weight="800">Ranked normalized coverage</text>
+  <text x="96" y="504" fill="#5f6f73" font-family="Arial, sans-serif" font-size="18">Normalized metric avoids comparing provinces by raw facility count alone.</text>
+
+  <g font-family="Arial, sans-serif" font-size="18" fill="#172128">
+    <text x="96" y="562">Prince Edward Island</text><rect x="340" y="540" width="760" height="24" rx="12" fill="#147b72"/><text x="1120" y="559" font-weight="700">52.01</text>
+    <text x="96" y="612">Saskatchewan</text><rect x="340" y="590" width="453" height="24" rx="12" fill="#1c948a"/><text x="1120" y="609" font-weight="700">31.02</text>
+    <text x="96" y="662">British Columbia</text><rect x="340" y="640" width="337" height="24" rx="12" fill="#29aaa0"/><text x="1120" y="659" font-weight="700">23.10</text>
+    <text x="96" y="712">New Brunswick</text><rect x="340" y="690" width="286" height="24" rx="12" fill="#40bcb2"/><text x="1120" y="709" font-weight="700">19.55</text>
+    <text x="96" y="762">Quebec</text><rect x="340" y="740" width="259" height="24" rx="12" fill="#61cbc2"/><text x="1120" y="759" font-weight="700">17.73</text>
+    <text x="96" y="812">Ontario</text><rect x="340" y="790" width="242" height="24" rx="12" fill="#7ed8d0"/><text x="1120" y="809" font-weight="700">16.58</text>
+  </g>
+
+  <text x="96" y="852" fill="#5f6f73" font-family="Arial, sans-serif" font-size="16">Data note: Ontario is included after normalizing "Ontario by Ontario Health Region" to province-level Ontario.</text>
+</svg>
