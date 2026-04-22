@@ -41,6 +41,13 @@ http://127.0.0.1:4174/frontend/index.html
 
 The frontend includes project summaries, direct links to portfolio assets, and a live CSV explorer that reads files from `reports/sqlite/`.
 
+## Visual Proof Assets
+
+Repo-native dashboard previews are available while the final Power BI PNG/PDF exports are pending:
+
+- `assets/screenshots/wait-times-dashboard-preview.svg`
+- `assets/screenshots/access-coverage-dashboard-preview.svg`
+
 ## Repo Structure
 
 - `data/` - raw and processed data intake notes
