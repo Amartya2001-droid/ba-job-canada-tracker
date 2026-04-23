@@ -30,4 +30,9 @@ Healthcare planners, operations analysts, and policy teams
 
 ## Deliverable
 
-Interactive Power BI dashboard with filters for province and facility type
+Dashboard-ready access coverage report with CSV output and preview asset:
+
+- `reports/sqlite/province_facility_coverage.csv`
+- `assets/screenshots/access-coverage-dashboard-preview.svg`
+
+The current output includes Ontario after normalizing the source label `Ontario by Ontario Health Region` to province-level `Ontario`.

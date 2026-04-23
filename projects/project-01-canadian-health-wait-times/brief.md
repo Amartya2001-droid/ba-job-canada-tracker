@@ -28,4 +28,7 @@ Hospital operations leaders, healthcare planners, and policy analysts
 
 ## Deliverable
 
-Analytical report with charts and summary insights
+Analytical report with charts, summary insights, CSV output, and dashboard preview asset:
+
+- `reports/sqlite/wait_times_summary.csv`
+- `assets/screenshots/wait-times-dashboard-preview.svg`
