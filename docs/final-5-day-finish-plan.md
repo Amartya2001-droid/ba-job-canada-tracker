@@ -19,6 +19,7 @@ As of April 20, 2026, the core healthcare BA repo is already in place: two worki
 - Update resume bullets with final dashboard language.
 - Refresh project insight notes if the Power BI pages surface a better takeaway.
 - Add screenshot references back into the frontend dashboard and README.
+- Add an application proof checklist so each application links the same repo, preview, and final export assets.
 
 ## Day 3: Application Setup
 
