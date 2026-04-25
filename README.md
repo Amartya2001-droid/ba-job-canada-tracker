@@ -48,6 +48,10 @@ Repo-native dashboard previews are available while the final Power BI PNG/PDF ex
 - `assets/screenshots/wait-times-dashboard-preview.svg`
 - `assets/screenshots/access-coverage-dashboard-preview.svg`
 
+## Finish Gate
+
+Use `docs/project-finish-checklist.md` to see what is still left before the project is fully finished.
+
 ## Repo Structure
 
 - `data/` - raw and processed data intake notes
