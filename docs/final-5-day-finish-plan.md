@@ -47,3 +47,5 @@ As of April 20, 2026, the core healthcare BA repo is already in place: two worki
 - Do not start a new industry track before the healthcare proof is complete.
 - Do not mass apply before the final screenshots exist.
 - Do not leave Ontario described as missing; describe it as a resolved source-normalization step.
+
+Use `docs/project-finish-checklist.md` as the final gate before calling the project complete.
