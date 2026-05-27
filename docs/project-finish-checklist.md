@@ -36,6 +36,7 @@ Use this as the final completion gate for the healthcare BA portfolio.
   - why percentile waits matter
   - why normalized access metrics matter
   - how the Ontario source-label issue was resolved
+- Use `docs/final-interview-walkthrough-kit.md` as the speaking script and rehearsal source.
 
 ### 4. Send-ready proof package
 

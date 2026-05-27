@@ -27,3 +27,7 @@ One challenge was handling the healthcare population source because it was large
 ## How Would You Communicate Findings To A Non-Technical Stakeholder?
 
 I would keep the message focused on the business question, the key metric, and the decision implication. For example, in the wait-times project I would avoid leading with SQL details and instead explain that median wait time alone can understate patient access pressure, especially for non-emergency surgeries.
+
+## Final Rehearsal Asset
+
+Use `docs/final-interview-walkthrough-kit.md` for the final 30-second, 60-second, 90-second, and STAR-format versions of both project stories.
