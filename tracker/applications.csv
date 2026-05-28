@@ -1,1 +1,1 @@
-date,company,role,location,job_link,stack_match,status,follow_up_date,notes
+date,company,role,location,job_link,required_tools,matching_tools,stack_match_score,domain_fit,proof_asset,status,follow_up_date,notes

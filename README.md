@@ -84,6 +84,7 @@ Use `docs/final-5-day-finish-plan.md` for the current closing-stretch sequence.
 - Use `scripts/build_healthcare_sqlite.sh` to create a local SQLite database after the raw files are extracted.
 - Use `scripts/check_healthcare_outputs.sh` after report generation to confirm the expected wait-time and province coverage outputs are present.
 - Use `docs/application-proof-checklist.md` before sending applications so every role includes the right proof links.
+- Use `docs/send-ready-application-package.md` when you are actually about to submit a role.
 
 ## Next Step
 

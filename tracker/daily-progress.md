@@ -52,6 +52,7 @@
 - [x] Tighten resume, project, and application docs around the new visual proof assets
 - [x] Add a project finish checklist and a more execution-ready first-five application worksheet
 - [x] Build a final interview walkthrough kit with 30-second, 60-second, 90-second, and STAR-format answers
+- [x] Upgrade the application tracker and add a send-ready application package guide
 - [ ] Build and export the two final Power BI dashboard screenshots
 - [ ] Fill the first five target applications using the completed proof package
 
@@ -75,3 +76,4 @@ Current state:
 - Application packaging now has a proof checklist so future applications can link the repo, dashboard previews, and final PDF consistently.
 - The remaining work is now explicit in `docs/project-finish-checklist.md`: final Power BI exports, real target roles, and interview delivery.
 - Interview delivery is now much closer to done because the repo includes a final walkthrough kit for both projects.
+- The application tracker now records required tools, matching tools, stack-match score, domain fit, and proof asset so real submissions can be logged cleanly.
