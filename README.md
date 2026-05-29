@@ -41,6 +41,14 @@ http://127.0.0.1:4174/frontend/index.html
 
 The frontend includes project summaries, direct links to portfolio assets, and a live CSV explorer that reads files from `reports/sqlite/`.
 
+## Production Path
+
+The frontend has been updated to use deploy-safe relative paths, and the repo now includes a GitHub Pages workflow for publishing the dashboard as a static portfolio site.
+
+- Launch checklist: `docs/production-launch-checklist.md`
+- Deployment guide: `docs/github-pages-deployment.md`
+- Workflow: `.github/workflows/deploy-pages.yml`
+
 ## Visual Proof Assets
 
 Repo-native dashboard previews are available while the final Power BI PNG/PDF exports are pending:
@@ -71,7 +79,8 @@ Use `docs/final-5-day-finish-plan.md` for the current closing-stretch sequence.
 2. Add screenshots or exports back into the repo once the Power BI pages are built.
 3. Build the final Power BI screenshots and save them in `assets/screenshots/`.
 4. Keep the frontend dashboard updated as the portfolio homepage.
-5. Apply only to jobs with 70%+ stack overlap once the project artifacts are polished.
+5. Publish the dashboard through GitHub Pages once the final QA pass is complete.
+6. Apply only to jobs with 70%+ stack overlap once the project artifacts are polished.
 
 ## How We Will Use This Repo
 
@@ -85,7 +94,9 @@ Use `docs/final-5-day-finish-plan.md` for the current closing-stretch sequence.
 - Use `scripts/check_healthcare_outputs.sh` after report generation to confirm the expected wait-time and province coverage outputs are present.
 - Use `docs/application-proof-checklist.md` before sending applications so every role includes the right proof links.
 - Use `docs/send-ready-application-package.md` when you are actually about to submit a role.
+- Use `docs/production-launch-checklist.md` before publishing the dashboard publicly.
+- Use `docs/github-pages-deployment.md` when enabling the public portfolio URL.
 
 ## Next Step
 
-Build the Power BI dashboard pages from `docs/powerbi-implementation-guide.md`, using the generated files in `reports/sqlite/` as the source outputs.
+Build the Power BI dashboard pages from `docs/powerbi-implementation-guide.md`, export the final PNG/PDF assets, and then publish the dashboard through GitHub Pages.

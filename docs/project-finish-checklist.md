@@ -8,6 +8,7 @@ Use this as the final completion gate for the healthcare BA portfolio.
 - Wait-times and access-coverage CSV outputs are generated and validated.
 - Ontario is included in the access coverage output after source-label normalization.
 - Frontend dashboard is live locally and links the supporting portfolio assets.
+- Frontend dashboard is now deploy-safe for static hosting and GitHub Pages.
 - Repo-native dashboard preview SVGs exist for both projects.
 - Resume, interview, application, and cover-note support docs exist.
 
@@ -41,14 +42,22 @@ Use this as the final completion gate for the healthcare BA portfolio.
 ### 4. Send-ready proof package
 
 - Repo link
+- Public dashboard URL
 - Frontend dashboard
 - Two preview SVGs
 - Final Power BI PNGs
 - Final Power BI PDF
 - One tailored cover note
 
+### 5. Public launch
+
+- Enable GitHub Pages and confirm the public portfolio URL works.
+- Run `docs/production-launch-checklist.md`.
+- Confirm the published dashboard opens assets and CSV outputs correctly.
+
 ## Project Is Finished When
 
 - The final Power BI PNG/PDF assets exist in `assets/screenshots/`.
+- The dashboard is published and opens correctly from the public Pages URL.
 - The first five target roles are filled with real links and notes.
 - The application proof checklist can be completed without placeholders.

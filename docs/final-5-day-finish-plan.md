@@ -1,6 +1,6 @@
 # Final 5-Day Finish Plan
 
-As of April 20, 2026, the core healthcare BA repo is already in place: two working SQL/SQLite projects, a polished frontend dashboard, export packaging, and recruiter-facing supporting docs. The remaining work is about finishing proof, not starting new tracks.
+As of May 29, 2026, the core healthcare BA repo is already in place: two working SQL/SQLite projects, a polished frontend dashboard, deploy-ready static hosting support, export packaging, and recruiter-facing supporting docs. The remaining work is about finishing proof, not starting new tracks.
 
 ## Day 1: Export Visual Proof
 
@@ -20,6 +20,7 @@ As of April 20, 2026, the core healthcare BA repo is already in place: two worki
 - Refresh project insight notes if the Power BI pages surface a better takeaway.
 - Add screenshot references back into the frontend dashboard and README.
 - Add an application proof checklist so each application links the same repo, preview, and final export assets.
+- Enable GitHub Pages after the final QA pass so the dashboard has a public URL.
 
 ## Day 3: Application Setup
 
