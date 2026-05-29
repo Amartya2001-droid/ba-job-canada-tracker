@@ -1,7 +1,7 @@
 const datasets = {
   "wait-times": {
     label: "Wait times summary",
-    url: "/reports/sqlite/wait_times_summary.csv",
+    url: "../reports/sqlite/wait_times_summary.csv",
     summary: (rows) => {
       const sorted = [...rows].sort(
         (a, b) => Number(b.p95_wait_weeks) - Number(a.p95_wait_weeks),
@@ -16,7 +16,7 @@ const datasets = {
   },
   "facility-coverage": {
     label: "Facility coverage",
-    url: "/reports/sqlite/province_facility_coverage.csv",
+    url: "../reports/sqlite/province_facility_coverage.csv",
     summary: (rows) => {
       const sorted = [...rows].sort(
         (a, b) => Number(b.facilities_per_100k) - Number(a.facilities_per_100k),

@@ -95,6 +95,7 @@ code {
 .link-button:hover,
 .check-item a:hover,
 .build-board a:hover,
+.launch-card a:hover,
 .footer a:hover {
   color: var(--brand-deep);
 }
@@ -227,7 +228,8 @@ h2 {
 .resource-links a:hover,
 .link-button:hover,
 .check-item a:hover,
-.build-board a:hover {
+.build-board a:hover,
+.launch-card a:hover {
   transform: translateY(-1px);
 }
 
@@ -300,7 +302,8 @@ h2 {
 }
 
 .readiness-grid,
-.build-board {
+.build-board,
+.launch-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
@@ -338,7 +341,8 @@ h2 {
 
 .readiness-card,
 .build-board article,
-.finish-card {
+.finish-card,
+.launch-card {
   min-height: 170px;
   padding: 18px;
   border: 1px solid var(--line);
@@ -381,7 +385,8 @@ h2 {
 
 .readiness-card p,
 .build-board p,
-.finish-card p {
+.finish-card p,
+.launch-card p {
   color: var(--muted);
   margin-bottom: 0;
 }
@@ -402,6 +407,10 @@ h2 {
 .finish-card.today {
   background: linear-gradient(180deg, rgba(20, 123, 114, 0.12), white 45%);
   border-color: rgba(20, 123, 114, 0.26);
+}
+
+.launch-card {
+  background: linear-gradient(180deg, rgba(23, 33, 40, 0.03), white 42%);
 }
 
 .mini-metrics {
@@ -748,6 +757,7 @@ tr:last-child td {
   .checklist-grid,
   .readiness-grid,
   .build-board,
+  .launch-grid,
   .finish-grid,
   .preview-grid {
     grid-template-columns: 1fr;
