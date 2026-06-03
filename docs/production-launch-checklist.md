@@ -4,6 +4,7 @@ Use this checklist during the final week before you start sharing the repo in re
 
 ## 1. Portfolio Site Readiness
 
+- Run `./scripts/verify_portfolio_ready.sh`.
 - Confirm the local dashboard opens from `frontend/index.html`.
 - Confirm the dashboard works from a repository subpath, not only from localhost root.
 - Confirm the CSV explorer loads both:
@@ -33,6 +34,7 @@ Use this checklist during the final week before you start sharing the repo in re
 ## 5. Public Launch
 
 - Enable GitHub Pages in repository settings.
+- Confirm the `Verify Portfolio Readiness` workflow passes on `main`.
 - Let the Pages workflow publish the repo.
 - Add the public portfolio URL to:
   - resume
@@ -43,6 +45,7 @@ Use this checklist during the final week before you start sharing the repo in re
 ## Project Is Public-Ready When
 
 - The frontend is deployable and published.
+- The verification script and workflow both pass.
 - The final PNG/PDF Power BI exports exist.
 - Five real target roles are logged.
 - The proof package can be sent without placeholders or caveats.

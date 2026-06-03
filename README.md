@@ -47,6 +47,8 @@ The frontend has been updated to use deploy-safe relative paths, and the repo no
 
 - Launch checklist: `docs/production-launch-checklist.md`
 - Deployment guide: `docs/github-pages-deployment.md`
+- Verification script: `scripts/verify_portfolio_ready.sh`
+- Verification workflow: `.github/workflows/verify-portfolio.yml`
 - Workflow: `.github/workflows/deploy-pages.yml`
 
 ## Visual Proof Assets
@@ -96,6 +98,7 @@ Use `docs/final-5-day-finish-plan.md` for the current closing-stretch sequence.
 - Use `docs/send-ready-application-package.md` when you are actually about to submit a role.
 - Use `docs/production-launch-checklist.md` before publishing the dashboard publicly.
 - Use `docs/github-pages-deployment.md` when enabling the public portfolio URL.
+- Use `scripts/verify_portfolio_ready.sh` before pushing final launch changes.
 
 ## Next Step
 

@@ -20,16 +20,18 @@ This repo now includes a GitHub Pages workflow so the dashboard can be published
 ## Publish Flow
 
 1. Push changes to `main`.
-2. GitHub Actions runs `Deploy Portfolio Dashboard`.
-3. After the workflow succeeds, GitHub provides the public Pages URL.
+2. GitHub Actions runs `Verify Portfolio Readiness`.
+3. GitHub Actions runs `Deploy Portfolio Dashboard`.
+4. After the workflow succeeds, GitHub provides the public Pages URL.
 
 ## Recommended Launch Order
 
 1. Push the production-readiness changes.
-2. Confirm the Pages site loads.
-3. Add the final Power BI PNG/PDF assets.
-4. Push again so the public site includes the final screenshots.
-5. Use that Pages URL inside resume, cover notes, and application tracking.
+2. Confirm the verification workflow is green.
+3. Confirm the Pages site loads.
+4. Add the final Power BI PNG/PDF assets.
+5. Push again so the public site includes the final screenshots.
+6. Use that Pages URL inside resume, cover notes, and application tracking.
 
 ## Notes
 

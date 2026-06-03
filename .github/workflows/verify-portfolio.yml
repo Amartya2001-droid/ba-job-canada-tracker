@@ -1,0 +1,25 @@
+name: Verify Portfolio Readiness
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Make verification scripts executable
+        run: chmod +x scripts/check_healthcare_outputs.sh scripts/verify_portfolio_ready.sh
+
+      - name: Run portfolio readiness verification
+        run: ./scripts/verify_portfolio_ready.sh
