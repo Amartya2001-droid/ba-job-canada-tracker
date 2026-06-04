@@ -303,7 +303,8 @@ h2 {
 
 .readiness-grid,
 .build-board,
-.launch-grid {
+.launch-grid,
+.finish-gate-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
@@ -342,7 +343,8 @@ h2 {
 .readiness-card,
 .build-board article,
 .finish-card,
-.launch-card {
+.launch-card,
+.finish-gate-card {
   min-height: 170px;
   padding: 18px;
   border: 1px solid var(--line);
@@ -386,7 +388,8 @@ h2 {
 .readiness-card p,
 .build-board p,
 .finish-card p,
-.launch-card p {
+.launch-card p,
+.finish-gate-card p {
   color: var(--muted);
   margin-bottom: 0;
 }
@@ -411,6 +414,16 @@ h2 {
 
 .launch-card {
   background: linear-gradient(180deg, rgba(23, 33, 40, 0.03), white 42%);
+}
+
+.finish-gate-card.ready {
+  background: linear-gradient(180deg, rgba(20, 123, 114, 0.12), white 45%);
+  border-color: rgba(20, 123, 114, 0.26);
+}
+
+.finish-gate-card.pending {
+  background: linear-gradient(180deg, rgba(234, 185, 91, 0.16), white 45%);
+  border-color: rgba(234, 185, 91, 0.35);
 }
 
 .mini-metrics {

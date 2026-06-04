@@ -55,6 +55,7 @@
 - [x] Upgrade the application tracker and add a send-ready application package guide
 - [x] Make the frontend deploy-safe for static hosting and add GitHub Pages production docs
 - [x] Add a single portfolio readiness verification script and CI workflow
+- [x] Add a live frontend finish gate for export assets and application progress
 - [ ] Build and export the two final Power BI dashboard screenshots
 - [ ] Fill the first five target applications using the completed proof package
 
@@ -81,3 +82,4 @@ Current state:
 - The application tracker now records required tools, matching tools, stack-match score, domain fit, and proof asset so real submissions can be logged cleanly.
 - The dashboard is now path-safe for public static hosting, and the repo includes a Pages workflow plus a production launch checklist for next week's release.
 - The repo now has one command and one GitHub workflow to validate launch readiness before publishing or applying.
+- The frontend now shows a live finish gate so missing PNG/PDF exports and missing application rows are visible immediately.

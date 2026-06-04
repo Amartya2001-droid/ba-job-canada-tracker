@@ -40,6 +40,7 @@ http://127.0.0.1:4174/frontend/index.html
 ```
 
 The frontend includes project summaries, direct links to portfolio assets, and a live CSV explorer that reads files from `reports/sqlite/`.
+It now also includes a live finish gate that checks for final Power BI export assets and the first five application rows.
 
 ## Production Path
 

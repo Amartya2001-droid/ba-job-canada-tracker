@@ -32,6 +32,30 @@ const datasets = {
   },
 };
 
+const finishGateItems = [
+  {
+    id: "wait-times-png",
+    label: "Wait Times PNG",
+    url: "../assets/screenshots/wait-times-dashboard.png",
+    pendingText: "Missing final exported dashboard image.",
+    readyText: "Final exported dashboard image is present.",
+  },
+  {
+    id: "access-coverage-png",
+    label: "Access Coverage PNG",
+    url: "../assets/screenshots/access-coverage-dashboard.png",
+    pendingText: "Missing final exported dashboard image.",
+    readyText: "Final exported dashboard image is present.",
+  },
+  {
+    id: "portfolio-pdf",
+    label: "Portfolio PDF",
+    url: "../assets/screenshots/healthcare-ba-portfolio.pdf",
+    pendingText: "Missing final send-ready PDF proof pack.",
+    readyText: "Final send-ready PDF proof pack is present.",
+  },
+];
+
 let activeRows = [];
 let activeConfig = datasets["wait-times"];
 let toastTimeout;
@@ -162,6 +186,97 @@ function renderActiveDataset() {
   renderTable(filterRows(activeRows, search?.value ?? ""));
 }
 
+function renderFinishGateCard({ status, label, description, detail }) {
+  const statusClass = status === "ready" ? "ready" : "pending";
+  const statusLabel = status === "ready" ? "Ready" : "Pending";
+  const boardClass = status === "ready" ? "ready" : "next";
+
+  return `
+    <article class="finish-gate-card ${statusClass}">
+      <span class="board-status ${boardClass}">${escapeHtml(statusLabel)}</span>
+      <strong>${escapeHtml(label)}</strong>
+      <p>${escapeHtml(description)}</p>
+      <p class="metric-note">${escapeHtml(detail)}</p>
+    </article>
+  `;
+}
+
+async function checkAssetStatus(item) {
+  try {
+    const response = await fetch(item.url, { method: "HEAD" });
+    if (!response.ok) {
+      return {
+        status: "pending",
+        label: item.label,
+        description: item.pendingText,
+        detail: "Add the final export to assets/screenshots/.",
+      };
+    }
+
+    return {
+      status: "ready",
+      label: item.label,
+      description: item.readyText,
+      detail: "Asset found in assets/screenshots/.",
+    };
+  } catch {
+    return {
+      status: "pending",
+      label: item.label,
+      description: item.pendingText,
+      detail: "Could not verify the asset from the current page load.",
+    };
+  }
+}
+
+function countRealApplications(rows) {
+  return rows.filter((row) =>
+    Object.values(row).some((value) => String(value).trim().length > 0),
+  ).length;
+}
+
+async function checkApplicationStatus() {
+  try {
+    const response = await fetch("../tracker/applications.csv");
+    if (!response.ok) {
+      throw new Error("Could not load applications.csv");
+    }
+
+    const rows = parseCsv(await response.text());
+    const realRows = countRealApplications(rows);
+    const done = realRows >= 5;
+
+    return {
+      status: done ? "ready" : "pending",
+      label: "Application Tracker",
+      description: done
+        ? "Five or more real application rows are recorded."
+        : "Fewer than five real application rows are recorded.",
+      detail: `${realRows} / 5 real applications logged.`,
+    };
+  } catch {
+    return {
+      status: "pending",
+      label: "Application Tracker",
+      description: "Could not verify the application tracker yet.",
+      detail: "Make sure tracker/applications.csv is available from the site.",
+    };
+  }
+}
+
+async function renderFinishGate() {
+  const container = document.querySelector("#finish-gate-grid");
+  if (!container) {
+    return;
+  }
+
+  const assetStatuses = await Promise.all(finishGateItems.map(checkAssetStatus));
+  const applicationStatus = await checkApplicationStatus();
+  container.innerHTML = [...assetStatuses, applicationStatus]
+    .map(renderFinishGateCard)
+    .join("");
+}
+
 function showToast(message) {
   const toast = document.querySelector("#toast");
   if (!toast) {
@@ -234,3 +349,5 @@ if (search) {
 copyButtons.forEach((button) => {
   button.addEventListener("click", () => copyText(button.dataset.copy ?? ""));
 });
+
+renderFinishGate();
