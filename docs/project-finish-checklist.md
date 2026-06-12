@@ -12,6 +12,7 @@ Use this as the final completion gate for the healthcare BA portfolio.
 - Frontend dashboard now includes a live finish gate for final exports and application-row progress.
 - Repo-native dashboard preview SVGs exist for both projects.
 - Resume, interview, application, and cover-note support docs exist.
+- A final submission runbook and application-readiness validator now exist.
 
 ## Still Left Before Calling The Project Finished
 
@@ -55,6 +56,12 @@ Use this as the final completion gate for the healthcare BA portfolio.
 - Enable GitHub Pages and confirm the public portfolio URL works.
 - Run `docs/production-launch-checklist.md`.
 - Confirm the published dashboard opens assets and CSV outputs correctly.
+
+### 6. Application validation
+
+- Run `scripts/check_application_readiness.sh`.
+- Confirm the first five worksheet has no placeholders.
+- Confirm `applications.csv` has 5 real rows with key fields filled.
 
 ## Project Is Finished When
 
