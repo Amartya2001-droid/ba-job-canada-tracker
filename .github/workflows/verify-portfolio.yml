@@ -22,4 +22,4 @@ jobs:
         run: chmod +x scripts/check_healthcare_outputs.sh scripts/verify_portfolio_ready.sh
 
       - name: Run portfolio readiness verification
-        run: ./scripts/verify_portfolio_ready.sh
+        run: bash ./scripts/verify_portfolio_ready.sh

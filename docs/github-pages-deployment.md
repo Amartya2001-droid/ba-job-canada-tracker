@@ -9,6 +9,7 @@ This repo now includes a GitHub Pages workflow so the dashboard can be published
 - Relative asset and document links so the site works from a repository subpath
 - `.nojekyll` so folders with underscores are served correctly
 - `.github/workflows/deploy-pages.yml` to publish on push to `main`
+- Auto-enable support in the Pages workflow so the first deploy can bootstrap GitHub Pages
 
 ## One-Time GitHub Setup
 
@@ -16,6 +17,8 @@ This repo now includes a GitHub Pages workflow so the dashboard can be published
 2. Go to `Settings` -> `Pages`.
 3. Under `Build and deployment`, choose `GitHub Actions`.
 4. Save the setting.
+
+If the first deploy happens before this setting is manually saved, the workflow now attempts to enable Pages automatically.
 
 ## Publish Flow
 
