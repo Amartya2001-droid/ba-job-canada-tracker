@@ -13,6 +13,7 @@ Use this as the final completion gate for the healthcare BA portfolio.
 - Repo-native dashboard preview SVGs exist for both projects.
 - Resume, interview, application, and cover-note support docs exist.
 - A final submission runbook and application-readiness validator now exist.
+- A finish-status summary script now exists for one-command last-mile checks.
 
 ## Still Left Before Calling The Project Finished
 

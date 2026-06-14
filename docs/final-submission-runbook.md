@@ -2,6 +2,21 @@
 
 Use this when you are about to finish the portfolio and start sending real applications.
 
+## 0. Quick Status Snapshot
+
+Run:
+
+```bash
+./scripts/print_finish_status.sh
+```
+
+This gives one summary view of:
+
+- healthcare output validation
+- portfolio readiness
+- application readiness
+- final PNG/PDF export presence
+
 ## 1. Confirm Data Outputs
 
 Run:

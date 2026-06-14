@@ -49,6 +49,7 @@ The frontend has been updated to use deploy-safe relative paths, and the repo no
 - Launch checklist: `docs/production-launch-checklist.md`
 - Deployment guide: `docs/github-pages-deployment.md`
 - Submission runbook: `docs/final-submission-runbook.md`
+- Finish status script: `scripts/print_finish_status.sh`
 - Verification script: `scripts/verify_portfolio_ready.sh`
 - Application readiness script: `scripts/check_application_readiness.sh`
 - Verification workflow: `.github/workflows/verify-portfolio.yml`
@@ -101,6 +102,7 @@ Use `docs/final-5-day-finish-plan.md` for the current closing-stretch sequence.
 - Use `docs/send-ready-application-package.md` when you are actually about to submit a role.
 - Use `docs/production-launch-checklist.md` before publishing the dashboard publicly.
 - Use `docs/github-pages-deployment.md` when enabling the public portfolio URL.
+- Use `scripts/print_finish_status.sh` when you want one quick snapshot of what is still missing.
 - Use `scripts/verify_portfolio_ready.sh` before pushing final launch changes.
 - Use `scripts/check_application_readiness.sh` before sending the first real application batch.
 

@@ -57,6 +57,7 @@
 - [x] Add a single portfolio readiness verification script and CI workflow
 - [x] Add a live frontend finish gate for export assets and application progress
 - [x] Add an application-readiness validator and final submission runbook
+- [x] Add a one-command finish-status summary for the final stretch
 - [ ] Build and export the two final Power BI dashboard screenshots
 - [ ] Fill the first five target applications using the completed proof package
 
@@ -85,3 +86,4 @@ Current state:
 - The repo now has one command and one GitHub workflow to validate launch readiness before publishing or applying.
 - The frontend now shows a live finish gate so missing PNG/PDF exports and missing application rows are visible immediately.
 - The repo now has a dedicated application-readiness check so the tracker can be validated before the first real submission batch.
+- The repo now has a one-command finish snapshot so the remaining blockers are visible without opening multiple files.
