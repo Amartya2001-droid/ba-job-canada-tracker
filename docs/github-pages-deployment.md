@@ -10,6 +10,7 @@ This repo now includes a GitHub Pages workflow so the dashboard can be published
 - `.nojekyll` so folders with underscores are served correctly
 - `.github/workflows/deploy-pages.yml` to publish on push to `main`
 - Auto-enable support in the Pages workflow so the first deploy can bootstrap GitHub Pages
+- Workflows opt into Node 24 action runtime behavior to avoid the GitHub runner deprecation warning
 
 ## One-Time GitHub Setup
 
