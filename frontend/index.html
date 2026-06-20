@@ -260,6 +260,30 @@
           </div>
         </section>
 
+        <section class="card full-span">
+          <div class="section-heading">
+            <p class="eyebrow">Application Board</p>
+            <h2>Live tracker preview</h2>
+          </div>
+          <p class="section-text">
+            As soon as you start filling <code>applications.csv</code>, the
+            first real roles will appear here with stack match, proof asset,
+            and follow-up status.
+          </p>
+          <div id="application-board" class="application-board">
+            <article class="application-card empty">
+              <span class="board-status next">Waiting</span>
+              <strong>No real application rows yet</strong>
+              <p>Fill <code>tracker/applications.csv</code> to turn this into a live application pipeline.</p>
+            </article>
+          </div>
+          <div class="resource-links">
+            <a href="../tracker/applications.csv">Open applications.csv</a>
+            <a href="../tracker/first-five-applications.md">Open first-five worksheet</a>
+            <a href="../scripts/check_application_readiness.sh">Open application validator</a>
+          </div>
+        </section>
+
         <section id="launch" class="card full-span">
           <div class="section-heading">
             <p class="eyebrow">Launch Track</p>

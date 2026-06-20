@@ -235,6 +235,12 @@ function countRealApplications(rows) {
   ).length;
 }
 
+function getRealApplicationRows(rows) {
+  return rows.filter((row) =>
+    Object.values(row).some((value) => String(value).trim().length > 0),
+  );
+}
+
 async function checkApplicationStatus() {
   try {
     const response = await fetch("../tracker/applications.csv");
@@ -261,6 +267,69 @@ async function checkApplicationStatus() {
       description: "Could not verify the application tracker yet.",
       detail: "Make sure tracker/applications.csv is available from the site.",
     };
+  }
+}
+
+function renderApplicationCard(row) {
+  const role = row.role || "Role missing";
+  const company = row.company || "Company missing";
+  const location = row.location || "Location missing";
+  const score = row.stack_match_score || "n/a";
+  const status = row.status || "pending";
+  const proof = row.proof_asset || "proof asset not set";
+  const followUp = row.follow_up_date || "follow-up date not set";
+  const boardClass =
+    status.toLowerCase() === "applied" || status.toLowerCase() === "submitted"
+      ? "ready"
+      : "next";
+
+  return `
+    <article class="application-card">
+      <span class="board-status ${boardClass}">${escapeHtml(status)}</span>
+      <strong>${escapeHtml(role)}</strong>
+      <p>${escapeHtml(company)} · ${escapeHtml(location)}</p>
+      <div class="application-meta">
+        <span>Stack match: ${escapeHtml(score)}</span>
+        <span>Proof asset: ${escapeHtml(proof)}</span>
+        <span>Follow-up: ${escapeHtml(followUp)}</span>
+      </div>
+    </article>
+  `;
+}
+
+async function renderApplicationBoard() {
+  const container = document.querySelector("#application-board");
+  if (!container) {
+    return;
+  }
+
+  try {
+    const response = await fetch("../tracker/applications.csv");
+    if (!response.ok) {
+      throw new Error("Could not load applications.csv");
+    }
+
+    const rows = getRealApplicationRows(parseCsv(await response.text()));
+    if (!rows.length) {
+      container.innerHTML = `
+        <article class="application-card empty">
+          <span class="board-status next">Waiting</span>
+          <strong>No real application rows yet</strong>
+          <p>Fill <code>tracker/applications.csv</code> to turn this into a live application pipeline.</p>
+        </article>
+      `;
+      return;
+    }
+
+    container.innerHTML = rows.slice(0, 5).map(renderApplicationCard).join("");
+  } catch (error) {
+    container.innerHTML = `
+      <article class="application-card empty">
+        <span class="board-status next">Pending</span>
+        <strong>Application board unavailable</strong>
+        <p>${escapeHtml(error.message)}</p>
+      </article>
+    `;
   }
 }
 
@@ -351,3 +420,4 @@ copyButtons.forEach((button) => {
 });
 
 renderFinishGate();
+renderApplicationBoard();
