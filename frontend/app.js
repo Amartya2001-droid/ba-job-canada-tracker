@@ -241,6 +241,20 @@ function getRealApplicationRows(rows) {
   );
 }
 
+function parseScore(value) {
+  const match = String(value).match(/(\d+(?:\.\d+)?)/);
+  return match ? Number(match[1]) : Number.NEGATIVE_INFINITY;
+}
+
+function parseFollowUpDate(value) {
+  const trimmed = String(value).trim();
+  if (!trimmed) {
+    return null;
+  }
+  const timestamp = Date.parse(trimmed);
+  return Number.isNaN(timestamp) ? null : { raw: trimmed, timestamp };
+}
+
 async function checkApplicationStatus() {
   try {
     const response = await fetch("../tracker/applications.csv");
@@ -297,6 +311,69 @@ function renderApplicationCard(row) {
   `;
 }
 
+function renderApplicationSummary(rows) {
+  const summary = document.querySelector("#application-summary");
+  if (!summary) {
+    return;
+  }
+
+  if (!rows.length) {
+    summary.innerHTML = `
+      <div class="summary-pill">
+        <span>Rows</span>
+        <strong>0</strong>
+      </div>
+      <div class="summary-pill">
+        <span>Submitted</span>
+        <strong>0</strong>
+      </div>
+      <div class="summary-pill">
+        <span>Best Match</span>
+        <strong>n/a</strong>
+      </div>
+      <div class="summary-pill">
+        <span>Next Follow-up</span>
+        <strong>n/a</strong>
+      </div>
+    `;
+    return;
+  }
+
+  const submittedCount = rows.filter((row) =>
+    ["applied", "submitted", "interview", "follow-up"].includes(
+      String(row.status).trim().toLowerCase(),
+    ),
+  ).length;
+
+  const bestMatch = [...rows].sort(
+    (a, b) => parseScore(b.stack_match_score) - parseScore(a.stack_match_score),
+  )[0];
+
+  const nextFollowUp = rows
+    .map((row) => parseFollowUpDate(row.follow_up_date))
+    .filter(Boolean)
+    .sort((a, b) => a.timestamp - b.timestamp)[0];
+
+  summary.innerHTML = `
+    <div class="summary-pill">
+      <span>Rows</span>
+      <strong>${escapeHtml(rows.length)}</strong>
+    </div>
+    <div class="summary-pill">
+      <span>Submitted</span>
+      <strong>${escapeHtml(submittedCount)}</strong>
+    </div>
+    <div class="summary-pill">
+      <span>Best Match</span>
+      <strong>${escapeHtml(bestMatch?.stack_match_score || "n/a")}</strong>
+    </div>
+    <div class="summary-pill">
+      <span>Next Follow-up</span>
+      <strong>${escapeHtml(nextFollowUp?.raw || "n/a")}</strong>
+    </div>
+  `;
+}
+
 async function renderApplicationBoard() {
   const container = document.querySelector("#application-board");
   if (!container) {
@@ -310,6 +387,7 @@ async function renderApplicationBoard() {
     }
 
     const rows = getRealApplicationRows(parseCsv(await response.text()));
+    renderApplicationSummary(rows);
     if (!rows.length) {
       container.innerHTML = `
         <article class="application-card empty">
@@ -323,6 +401,7 @@ async function renderApplicationBoard() {
 
     container.innerHTML = rows.slice(0, 5).map(renderApplicationCard).join("");
   } catch (error) {
+    renderApplicationSummary([]);
     container.innerHTML = `
       <article class="application-card empty">
         <span class="board-status next">Pending</span>

@@ -59,6 +59,7 @@
 - [x] Add an application-readiness validator and final submission runbook
 - [x] Add a one-command finish-status summary for the final stretch
 - [x] Add a live frontend application board fed by `applications.csv`
+- [x] Add a live application summary for row count, submitted roles, best match, and next follow-up
 - [ ] Build and export the two final Power BI dashboard screenshots
 - [ ] Fill the first five target applications using the completed proof package
 
@@ -89,3 +90,4 @@ Current state:
 - The repo now has a dedicated application-readiness check so the tracker can be validated before the first real submission batch.
 - The repo now has a one-command finish snapshot so the remaining blockers are visible without opening multiple files.
 - The frontend can now display the first real application rows as soon as they are logged in `applications.csv`.
+- The frontend can now summarize application activity as soon as real rows are logged, which makes the job pipeline more visible in the portfolio itself.

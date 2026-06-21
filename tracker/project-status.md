@@ -7,7 +7,7 @@
 | Portfolio Frontend Dashboard | Deploy-ready | Dashboard now works locally and from a repository subpath, with project summaries, assets, live CSV outputs, export workflow, and a live finish gate | Publish through GitHub Pages after final QA and screenshot export |
 | Public Portfolio Deployment | Ready to enable | GitHub Pages workflow, `.nojekyll`, launch checklist, deployment guide, and verification workflow are in place | Enable Pages in repo settings, confirm verification passes, and confirm the public URL |
 | Application Readiness Gate | Ready | Placeholder detection and minimum-row validation now exist for the first real application batch | Replace worksheet placeholders and fill `applications.csv` with five real roles |
-| Live Application Board | Ready | Frontend now reads `applications.csv` and can surface the first real roles directly in the portfolio | Fill real application rows so the board turns into visible proof of selective job targeting |
+| Live Application Board | Ready | Frontend now reads `applications.csv` and can surface the first real roles plus application summary metrics directly in the portfolio | Fill real application rows so the board turns into visible proof of selective job targeting |
 | Finish Status Summary | Ready | One command now summarizes validators plus final asset presence | Use it during the final week to track what is still blocking completion |
 | Power BI Export Pack | Preview-ready | SVG previews exist and final PNG/PDF paths are documented | Build dashboards and save polished Power BI exports into `assets/screenshots/` |
 | Final 5-Day Finish Plan | Active | Remaining work is sequenced into export, story, application, interview, and outreach days | Execute Day 1 by exporting the final Power BI visuals |

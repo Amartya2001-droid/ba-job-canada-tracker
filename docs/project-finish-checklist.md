@@ -10,7 +10,7 @@ Use this as the final completion gate for the healthcare BA portfolio.
 - Frontend dashboard is live locally and links the supporting portfolio assets.
 - Frontend dashboard is now deploy-safe for static hosting and GitHub Pages.
 - Frontend dashboard now includes a live finish gate for final exports and application-row progress.
-- Frontend dashboard now includes a live application board fed by `tracker/applications.csv`.
+- Frontend dashboard now includes a live application board and summary fed by `tracker/applications.csv`.
 - Repo-native dashboard preview SVGs exist for both projects.
 - Resume, interview, application, and cover-note support docs exist.
 - A final submission runbook and application-readiness validator now exist.
