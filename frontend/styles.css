@@ -305,7 +305,9 @@ h2 {
 .build-board,
 .launch-grid,
 .finish-gate-grid,
-.application-board {
+.application-board,
+.entry-helper-grid,
+.entry-output-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
@@ -448,6 +450,53 @@ h2 {
   display: inline-flex;
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.entry-helper-grid {
+  margin-top: 18px;
+}
+
+.entry-helper-grid .field-group {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.entry-helper-grid input {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: white;
+  color: var(--ink);
+  font: inherit;
+}
+
+.entry-output-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 18px;
+}
+
+.entry-output-card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: white;
+}
+
+.entry-output {
+  min-height: 150px;
+  margin: 0 0 14px;
+  padding: 14px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(23, 33, 40, 0.04);
+  color: var(--ink);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.88rem;
+  white-space: pre-wrap;
 }
 
 .mini-metrics {
@@ -796,7 +845,10 @@ tr:last-child td {
   .build-board,
   .launch-grid,
   .finish-grid,
-  .preview-grid {
+  .preview-grid,
+  .application-board,
+  .entry-helper-grid,
+  .entry-output-grid {
     grid-template-columns: 1fr;
   }
 

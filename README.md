@@ -39,7 +39,7 @@ Then open:
 http://127.0.0.1:4174/frontend/index.html
 ```
 
-The frontend includes project summaries, direct links to portfolio assets, a live CSV explorer that reads files from `reports/sqlite/`, a live finish gate for final export assets, and a live application board plus summary fed by `tracker/applications.csv`.
+The frontend includes project summaries, direct links to portfolio assets, a live CSV explorer that reads files from `reports/sqlite/`, a live finish gate for final export assets, a live application board plus summary fed by `tracker/applications.csv`, and an entry helper that generates copy-ready application tracker rows.
 
 ## Production Path
 

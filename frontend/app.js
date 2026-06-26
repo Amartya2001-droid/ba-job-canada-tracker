@@ -69,6 +69,14 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
+function toCsvCell(value) {
+  const stringValue = String(value ?? "");
+  if (/[",\n]/.test(stringValue)) {
+    return `"${stringValue.replaceAll('"', '""')}"`;
+  }
+  return stringValue;
+}
+
 function parseCsv(text) {
   const rows = [];
   let cell = "";
@@ -446,6 +454,76 @@ async function copyText(value) {
   }
 }
 
+function getEntryValue(id) {
+  return document.querySelector(id)?.value?.trim() ?? "";
+}
+
+function buildEntryCsvRow() {
+  const today = new Date().toISOString().slice(0, 10);
+  const fields = [
+    today,
+    getEntryValue("#entry-company"),
+    getEntryValue("#entry-role"),
+    getEntryValue("#entry-location"),
+    getEntryValue("#entry-job-link"),
+    getEntryValue("#entry-required-tools"),
+    getEntryValue("#entry-matching-tools"),
+    getEntryValue("#entry-stack-match"),
+    getEntryValue("#entry-domain-fit"),
+    getEntryValue("#entry-proof-asset"),
+    getEntryValue("#entry-status"),
+    getEntryValue("#entry-follow-up"),
+    getEntryValue("#entry-notes"),
+  ];
+
+  return fields.map(toCsvCell).join(",");
+}
+
+function buildEntryMarkdownBlock() {
+  return `- company: ${getEntryValue("#entry-company") || "[Company]"}
+- role: ${getEntryValue("#entry-role") || "[Role]"}
+- location: ${getEntryValue("#entry-location") || "[Location]"}
+- job link: ${getEntryValue("#entry-job-link") || "[Job Link]"}
+- why it fits: ${getEntryValue("#entry-domain-fit") || "[Why it fits]"}
+- matching tools: ${getEntryValue("#entry-matching-tools") || "[Matching tools]"}
+- stack match score: ${getEntryValue("#entry-stack-match") || "[Stack match score]"}
+- project bullet to emphasize: ${getEntryValue("#entry-notes") || "[Project bullet]"}
+- proof asset to link: ${getEntryValue("#entry-proof-asset") || "[Proof asset]"}
+- status: ${getEntryValue("#entry-status") || "[Status]"}`;
+}
+
+function renderEntryHelperOutputs() {
+  const csvOutput = document.querySelector("#entry-csv-output");
+  const mdOutput = document.querySelector("#entry-md-output");
+  if (!csvOutput || !mdOutput) {
+    return;
+  }
+
+  const hasAnyValue = [
+    "#entry-company",
+    "#entry-role",
+    "#entry-location",
+    "#entry-job-link",
+    "#entry-required-tools",
+    "#entry-matching-tools",
+    "#entry-stack-match",
+    "#entry-domain-fit",
+    "#entry-proof-asset",
+    "#entry-status",
+    "#entry-follow-up",
+    "#entry-notes",
+  ].some((selector) => getEntryValue(selector));
+
+  if (!hasAnyValue) {
+    csvOutput.textContent = "Fill the helper to generate a CSV row.";
+    mdOutput.textContent = "Fill the helper to generate a markdown block.";
+    return;
+  }
+
+  csvOutput.textContent = buildEntryCsvRow();
+  mdOutput.textContent = buildEntryMarkdownBlock();
+}
+
 async function loadDataset(key) {
   const config = datasets[key];
   const table = document.querySelector("#data-table");
@@ -498,5 +576,32 @@ copyButtons.forEach((button) => {
   button.addEventListener("click", () => copyText(button.dataset.copy ?? ""));
 });
 
+[
+  "#entry-company",
+  "#entry-role",
+  "#entry-location",
+  "#entry-job-link",
+  "#entry-required-tools",
+  "#entry-matching-tools",
+  "#entry-stack-match",
+  "#entry-domain-fit",
+  "#entry-proof-asset",
+  "#entry-status",
+  "#entry-follow-up",
+  "#entry-notes",
+].forEach((selector) => {
+  const input = document.querySelector(selector);
+  input?.addEventListener("input", renderEntryHelperOutputs);
+});
+
+document
+  .querySelector("#copy-csv-entry")
+  ?.addEventListener("click", () => copyText(buildEntryCsvRow()));
+
+document
+  .querySelector("#copy-md-entry")
+  ?.addEventListener("click", () => copyText(buildEntryMarkdownBlock()));
+
 renderFinishGate();
 renderApplicationBoard();
+renderEntryHelperOutputs();

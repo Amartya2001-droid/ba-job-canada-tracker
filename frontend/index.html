@@ -302,6 +302,50 @@
           </div>
         </section>
 
+        <section class="card full-span">
+          <div class="section-heading">
+            <p class="eyebrow">Entry Helper</p>
+            <h2>Generate application entries</h2>
+          </div>
+          <p class="section-text">
+            Fill one real role here and the dashboard will generate a ready-to-paste
+            CSV row for <code>applications.csv</code> and a markdown block for the
+            first-five worksheet.
+          </p>
+          <div class="entry-helper-grid">
+            <label class="field-group"><span>Company</span><input id="entry-company" type="text" placeholder="Nova Scotia Health" /></label>
+            <label class="field-group"><span>Role</span><input id="entry-role" type="text" placeholder="Business Analyst" /></label>
+            <label class="field-group"><span>Location</span><input id="entry-location" type="text" placeholder="Halifax, NS" /></label>
+            <label class="field-group"><span>Job Link</span><input id="entry-job-link" type="url" placeholder="https://..." /></label>
+            <label class="field-group"><span>Required Tools</span><input id="entry-required-tools" type="text" placeholder="SQL, Power BI, Excel" /></label>
+            <label class="field-group"><span>Matching Tools</span><input id="entry-matching-tools" type="text" placeholder="SQL, Power BI, Excel" /></label>
+            <label class="field-group"><span>Stack Match</span><input id="entry-stack-match" type="text" placeholder="4/5" /></label>
+            <label class="field-group"><span>Domain Fit</span><input id="entry-domain-fit" type="text" placeholder="Healthcare operations analytics" /></label>
+            <label class="field-group"><span>Proof Asset</span><input id="entry-proof-asset" type="text" placeholder="wait-times-dashboard-preview.svg" /></label>
+            <label class="field-group"><span>Status</span><input id="entry-status" type="text" placeholder="shortlist" /></label>
+            <label class="field-group"><span>Follow-up Date</span><input id="entry-follow-up" type="date" /></label>
+            <label class="field-group"><span>Notes</span><input id="entry-notes" type="text" placeholder="Strong healthcare fit, SQL + reporting" /></label>
+          </div>
+          <div class="entry-output-grid">
+            <div class="entry-output-card">
+              <div class="section-heading">
+                <p class="eyebrow">CSV Row</p>
+                <h2>applications.csv</h2>
+              </div>
+              <pre id="entry-csv-output" class="entry-output">Fill the helper to generate a CSV row.</pre>
+              <button id="copy-csv-entry" class="link-button" type="button">Copy CSV Row</button>
+            </div>
+            <div class="entry-output-card">
+              <div class="section-heading">
+                <p class="eyebrow">Worksheet Block</p>
+                <h2>First Five Markdown</h2>
+              </div>
+              <pre id="entry-md-output" class="entry-output">Fill the helper to generate a markdown block.</pre>
+              <button id="copy-md-entry" class="link-button" type="button">Copy Markdown Block</button>
+            </div>
+          </div>
+        </section>
+
         <section id="launch" class="card full-span">
           <div class="section-heading">
             <p class="eyebrow">Launch Track</p>
