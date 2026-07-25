@@ -51,6 +51,14 @@ This confirms:
 - `tracker/applications.csv` has at least 5 real rows
 - key application fields are filled for each real row
 
+If you want help generating a real row quickly, use:
+
+```bash
+./scripts/add_application_entry.sh --help
+```
+
+This prints a copy-ready CSV row and markdown block for one real job entry.
+
 ## 4. Final Manual Checks
 
 - Final Power BI PNG exports exist in `assets/screenshots/`

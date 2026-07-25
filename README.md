@@ -51,6 +51,7 @@ The frontend has been updated to use deploy-safe relative paths, and the repo no
 - Finish status script: `scripts/print_finish_status.sh`
 - Verification script: `scripts/verify_portfolio_ready.sh`
 - Application readiness script: `scripts/check_application_readiness.sh`
+- Application entry helper: `scripts/add_application_entry.sh`
 - Verification workflow: `.github/workflows/verify-portfolio.yml`
 - Workflow: `.github/workflows/deploy-pages.yml`
 
@@ -104,6 +105,7 @@ Use `docs/final-5-day-finish-plan.md` for the current closing-stretch sequence.
 - Use `scripts/print_finish_status.sh` when you want one quick snapshot of what is still missing.
 - Use `scripts/verify_portfolio_ready.sh` before pushing final launch changes.
 - Use `scripts/check_application_readiness.sh` before sending the first real application batch.
+- Use `scripts/add_application_entry.sh --help` when you want to generate a real tracker row without hand-formatting it.
 
 ## Next Step
 

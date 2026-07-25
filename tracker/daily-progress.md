@@ -61,6 +61,7 @@
 - [x] Add a live frontend application board fed by `applications.csv`
 - [x] Add a live application summary for row count, submitted roles, best match, and next follow-up
 - [x] Add a frontend application entry helper that generates CSV and markdown snippets
+- [x] Add a CLI application entry helper for real tracker rows
 - [ ] Build and export the two final Power BI dashboard screenshots
 - [ ] Fill the first five target applications using the completed proof package
 
@@ -93,3 +94,4 @@ Current state:
 - The frontend can now display the first real application rows as soon as they are logged in `applications.csv`.
 - The frontend can now summarize application activity as soon as real rows are logged, which makes the job pipeline more visible in the portfolio itself.
 - The frontend can now generate copy-ready application tracker snippets, which should make filling the first five roles noticeably faster.
+- The repo now also has a CLI helper that can print or append a real application row without manual CSV formatting.

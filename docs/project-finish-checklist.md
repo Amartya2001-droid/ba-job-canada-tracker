@@ -12,6 +12,7 @@ Use this as the final completion gate for the healthcare BA portfolio.
 - Frontend dashboard now includes a live finish gate for final exports and application-row progress.
 - Frontend dashboard now includes a live application board and summary fed by `tracker/applications.csv`.
 - Frontend dashboard now includes an application entry helper for generating CSV and markdown tracker entries.
+- A CLI application entry helper now exists for generating or appending real CSV rows.
 - Repo-native dashboard preview SVGs exist for both projects.
 - Resume, interview, application, and cover-note support docs exist.
 - A final submission runbook and application-readiness validator now exist.

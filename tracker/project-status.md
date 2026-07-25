@@ -9,6 +9,7 @@
 | Application Readiness Gate | Ready | Placeholder detection and minimum-row validation now exist for the first real application batch | Replace worksheet placeholders and fill `applications.csv` with five real roles |
 | Live Application Board | Ready | Frontend now reads `applications.csv` and can surface the first real roles plus application summary metrics directly in the portfolio | Fill real application rows so the board turns into visible proof of selective job targeting |
 | Application Entry Helper | Ready | Frontend can now generate copy-ready CSV and markdown snippets for a real job entry | Use it to fill the first five application rows faster and with less formatting friction |
+| CLI Application Entry Helper | Ready | Terminal helper can generate or append a real CSV application row and matching markdown block | Use it when adding real roles directly into the tracker files |
 | Finish Status Summary | Ready | One command now summarizes validators plus final asset presence | Use it during the final week to track what is still blocking completion |
 | Power BI Export Pack | Preview-ready | SVG previews exist and final PNG/PDF paths are documented | Build dashboards and save polished Power BI exports into `assets/screenshots/` |
 | Final 5-Day Finish Plan | Active | Remaining work is sequenced into export, story, application, interview, and outreach days | Execute Day 1 by exporting the final Power BI visuals |
