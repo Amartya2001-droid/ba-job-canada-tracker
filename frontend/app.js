@@ -67,6 +67,7 @@ let activeConfig = datasets["wait-times"];
 let toastTimeout;
 let latestApplicationRows = [];
 let latestFinishStatuses = [];
+let latestPortfolioSnapshot = null;
 
 const entryFieldSelectors = [
   "#entry-company",
@@ -246,6 +247,22 @@ function renderFinishGateCard({ status, label, description, detail }) {
       <p class="metric-note">${escapeHtml(detail)}</p>
     </article>
   `;
+}
+
+function formatSnapshotDate(value) {
+  const timestamp = Date.parse(value);
+  if (Number.isNaN(timestamp)) {
+    return "n/a";
+  }
+
+  return new Date(timestamp).toLocaleString("en-CA", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    timeZoneName: "short",
+  });
 }
 
 async function checkAssetStatus(item) {
@@ -640,6 +657,109 @@ function renderEntryHelperOutputs() {
   mdOutput.textContent = buildEntryMarkdownBlock();
 }
 
+function renderPortfolioSnapshot(snapshot) {
+  const summary = document.querySelector("#snapshot-summary");
+  const board = document.querySelector("#snapshot-board");
+  if (!summary || !board) {
+    return;
+  }
+
+  if (!snapshot) {
+    summary.innerHTML = `
+      <div class="summary-pill">
+        <span>Generated</span>
+        <strong>Unavailable</strong>
+      </div>
+      <div class="summary-pill">
+        <span>Final Assets</span>
+        <strong>n/a</strong>
+      </div>
+      <div class="summary-pill">
+        <span>Applications</span>
+        <strong>n/a</strong>
+      </div>
+      <div class="summary-pill">
+        <span>Pending</span>
+        <strong>n/a</strong>
+      </div>
+    `;
+
+    board.innerHTML = `
+      <article class="readiness-card next">
+        <span>Snapshot</span>
+        <strong>Portfolio snapshot unavailable</strong>
+        <p>Run <code>./scripts/export_portfolio_snapshot.sh</code> to refresh it.</p>
+      </article>
+    `;
+    return;
+  }
+
+  const pendingItems = Array.isArray(snapshot.pending_items) ? snapshot.pending_items : [];
+
+  summary.innerHTML = `
+    <div class="summary-pill">
+      <span>Generated</span>
+      <strong>${escapeHtml(formatSnapshotDate(snapshot.generated_at))}</strong>
+    </div>
+    <div class="summary-pill">
+      <span>Final Assets</span>
+      <strong>${escapeHtml(`${snapshot.final_assets_present} / ${snapshot.final_assets_expected}`)}</strong>
+    </div>
+    <div class="summary-pill">
+      <span>Applications</span>
+      <strong>${escapeHtml(`${snapshot.application_rows} / ${snapshot.application_rows_target}`)}</strong>
+    </div>
+    <div class="summary-pill">
+      <span>Pending</span>
+      <strong>${escapeHtml(String(pendingItems.length))}</strong>
+    </div>
+  `;
+
+  const snapshotCards = [
+    {
+      label: "Healthcare outputs",
+      status: snapshot.healthcare_outputs_ready ? "complete" : "next",
+      detail: snapshot.healthcare_outputs_ready
+        ? "Core data outputs passed validation."
+        : "Run the healthcare output validator again.",
+    },
+    {
+      label: "Frontend check",
+      status: snapshot.frontend_ready ? "complete" : "next",
+      detail: snapshot.frontend_ready
+        ? "Frontend syntax is valid."
+        : "Frontend JavaScript check is still failing.",
+    },
+    {
+      label: "Tracker readiness",
+      status: snapshot.tracker_ready ? "complete" : "next",
+      detail: snapshot.tracker_ready
+        ? "First real application batch is ready."
+        : "Tracker still needs real rows or stronger entries.",
+    },
+    {
+      label: "Pending blockers",
+      status: pendingItems.length === 0 ? "complete" : "next",
+      detail:
+        pendingItems.length === 0
+          ? "No blockers remain in the snapshot."
+          : pendingItems.join(", ").replaceAll("_", " "),
+    },
+  ];
+
+  board.innerHTML = snapshotCards
+    .map(
+      (item, index) => `
+        <article class="readiness-card ${item.status}">
+          <span>${escapeHtml(String(index + 1).padStart(2, "0"))}</span>
+          <strong>${escapeHtml(item.label)}</strong>
+          <p>${escapeHtml(item.detail)}</p>
+        </article>
+      `,
+    )
+    .join("");
+}
+
 function renderFinishCoach() {
   const container = document.querySelector("#finish-coach");
   if (!container) {
@@ -669,7 +789,15 @@ function renderFinishCoach() {
   let message =
     "The repo build is strong. The main blocker is still the final PNG and PDF export pack.";
 
-  if (!missingAssets.length && realApplicationCount < 5) {
+  if (
+    latestPortfolioSnapshot &&
+    Array.isArray(latestPortfolioSnapshot.pending_items) &&
+    latestPortfolioSnapshot.pending_items.includes("application_readiness")
+  ) {
+    headline = "Strengthen the first application batch";
+    message =
+      "The tracker needs more complete real rows before the first five roles are send-ready.";
+  } else if (!missingAssets.length && realApplicationCount < 5) {
     headline = "Fill the first five healthcare applications";
     message =
       "The visual proof is ready, so the next move is replacing tracker placeholders with real healthcare roles.";
@@ -763,6 +891,23 @@ function renderAssetLocker(statuses) {
     .join("");
 }
 
+async function loadPortfolioSnapshot() {
+  try {
+    const response = await fetch("../reports/portfolio/portfolio_snapshot.json");
+    if (!response.ok) {
+      throw new Error("Could not load portfolio_snapshot.json");
+    }
+
+    latestPortfolioSnapshot = JSON.parse(await response.text());
+    renderPortfolioSnapshot(latestPortfolioSnapshot);
+    renderFinishCoach();
+  } catch {
+    latestPortfolioSnapshot = null;
+    renderPortfolioSnapshot(null);
+    renderFinishCoach();
+  }
+}
+
 async function loadDataset(key) {
   const config = datasets[key];
   const table = document.querySelector("#data-table");
@@ -841,6 +986,7 @@ document.querySelector("#clear-entry-helper")?.addEventListener("click", clearEn
 document.querySelector("#fill-entry-sample")?.addEventListener("click", fillEntrySample);
 
 restoreEntryDraft();
+loadPortfolioSnapshot();
 renderFinishGate();
 renderApplicationBoard();
 renderEntryHelperOutputs();

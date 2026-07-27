@@ -87,6 +87,46 @@
 
         <section class="card full-span">
           <div class="section-heading">
+            <p class="eyebrow">Ops Snapshot</p>
+            <h2>Machine-readable portfolio state</h2>
+          </div>
+          <p class="section-text">
+            This section reads the generated portfolio snapshot so the homepage
+            shows a compact status view of the current repo state.
+          </p>
+          <div id="snapshot-summary" class="data-summary">
+            <div class="summary-pill">
+              <span>Generated</span>
+              <strong>Loading</strong>
+            </div>
+            <div class="summary-pill">
+              <span>Final Assets</span>
+              <strong>Loading</strong>
+            </div>
+            <div class="summary-pill">
+              <span>Applications</span>
+              <strong>Loading</strong>
+            </div>
+            <div class="summary-pill">
+              <span>Pending</span>
+              <strong>Loading</strong>
+            </div>
+          </div>
+          <div id="snapshot-board" class="readiness-grid">
+            <article class="readiness-card next">
+              <span>Loading</span>
+              <strong>Snapshot pending</strong>
+              <p>Refreshing portfolio snapshot data from the repo.</p>
+            </article>
+          </div>
+          <div class="resource-links">
+            <a href="../reports/portfolio/portfolio_snapshot.json">Open Snapshot JSON</a>
+            <a href="../reports/portfolio/README.md">Open Snapshot Notes</a>
+          </div>
+        </section>
+
+        <section class="card full-span">
+          <div class="section-heading">
             <p class="eyebrow">Readiness Board</p>
             <h2>What this portfolio can prove</h2>
           </div>
@@ -389,6 +429,47 @@
               <strong>Loading export status</strong>
               <p>Looking for the final Power BI assets.</p>
             </article>
+          </div>
+        </section>
+
+        <section class="card full-span">
+          <div class="section-heading">
+            <p class="eyebrow">Command Center</p>
+            <h2>Run the right checks fast</h2>
+          </div>
+          <p class="section-text">
+            These are the main commands to refresh the snapshot and validate the
+            portfolio before pushing or applying.
+          </p>
+          <div class="checklist-grid">
+            <div class="check-item">
+              <strong>Refresh Snapshot</strong>
+              <p>Regenerate the machine-readable portfolio summary JSON.</p>
+              <button class="link-button" type="button" data-copy="./scripts/export_portfolio_snapshot.sh">
+                Copy Command
+              </button>
+            </div>
+            <div class="check-item">
+              <strong>Portfolio Ready Check</strong>
+              <p>Validate docs, data outputs, links, and frontend syntax.</p>
+              <button class="link-button" type="button" data-copy="./scripts/verify_portfolio_ready.sh">
+                Copy Command
+              </button>
+            </div>
+            <div class="check-item">
+              <strong>Tracker Quality Check</strong>
+              <p>Catch duplicate links, weak rows, and bad follow-up dates.</p>
+              <button class="link-button" type="button" data-copy="./scripts/check_tracker_consistency.sh">
+                Copy Command
+              </button>
+            </div>
+            <div class="check-item">
+              <strong>Finish Snapshot</strong>
+              <p>Print the full pass or pending summary with the next best move.</p>
+              <button class="link-button" type="button" data-copy="./scripts/print_finish_status.sh">
+                Copy Command
+              </button>
+            </div>
           </div>
         </section>
 
