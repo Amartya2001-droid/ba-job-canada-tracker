@@ -456,6 +456,10 @@ h2 {
   margin-top: 18px;
 }
 
+.helper-actions {
+  margin-top: 0;
+}
+
 .entry-helper-grid .field-group {
   display: grid;
   gap: 8px;
@@ -483,6 +487,80 @@ h2 {
   border: 1px solid var(--line);
   border-radius: 22px;
   background: white;
+}
+
+.coach-shell,
+.asset-locker {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.coach-card,
+.asset-card {
+  min-height: 220px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: white;
+}
+
+.coach-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(180deg, rgba(23, 33, 40, 0.03), white 42%);
+}
+
+.coach-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.asset-card.ready {
+  background: linear-gradient(180deg, rgba(20, 123, 114, 0.12), white 45%);
+  border-color: rgba(20, 123, 114, 0.26);
+}
+
+.asset-card.pending {
+  background: linear-gradient(180deg, rgba(234, 185, 91, 0.16), white 45%);
+  border-color: rgba(234, 185, 91, 0.35);
+}
+
+.asset-preview {
+  margin: 14px 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #f8f4ec;
+}
+
+.asset-preview img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.asset-preview-pdf {
+  display: grid;
+  place-items: center;
+  min-height: 180px;
+  background: linear-gradient(135deg, rgba(23, 33, 40, 0.06), rgba(199, 91, 57, 0.12));
+}
+
+.asset-preview-pdf span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 24px;
+  background: white;
+  color: var(--brand-deep);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.05rem;
+  font-weight: 800;
 }
 
 .entry-output {
@@ -846,6 +924,9 @@ tr:last-child td {
   .launch-grid,
   .finish-grid,
   .preview-grid,
+  .coach-shell,
+  .asset-locker,
+  .coach-metrics,
   .application-board,
   .entry-helper-grid,
   .entry-output-grid {

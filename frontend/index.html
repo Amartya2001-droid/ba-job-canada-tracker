@@ -262,6 +262,24 @@
 
         <section class="card full-span">
           <div class="section-heading">
+            <p class="eyebrow">Finish Coach</p>
+            <h2>What to do next</h2>
+          </div>
+          <p class="section-text">
+            This turns the current repo state into a single recommendation so
+            you always know the next highest-value move.
+          </p>
+          <div id="finish-coach" class="coach-shell">
+            <article class="coach-card">
+              <span class="board-status next">Checking</span>
+              <strong>Loading finish guidance</strong>
+              <p>Reviewing export assets and application tracker progress.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="card full-span">
+          <div class="section-heading">
             <p class="eyebrow">Application Board</p>
             <h2>Live tracker preview</h2>
           </div>
@@ -312,6 +330,15 @@
             CSV row for <code>applications.csv</code> and a markdown block for the
             first-five worksheet.
           </p>
+          <div class="resource-links helper-actions">
+            <button id="fill-entry-sample" class="link-button" type="button">
+              Fill Healthcare Sample
+            </button>
+            <button id="clear-entry-helper" class="link-button" type="button">
+              Clear Draft
+            </button>
+            <a href="../scripts/add_application_entry.sh">Open CLI Entry Helper</a>
+          </div>
           <div class="entry-helper-grid">
             <label class="field-group"><span>Company</span><input id="entry-company" type="text" placeholder="Nova Scotia Health" /></label>
             <label class="field-group"><span>Role</span><input id="entry-role" type="text" placeholder="Business Analyst" /></label>
@@ -343,6 +370,25 @@
               <pre id="entry-md-output" class="entry-output">Fill the helper to generate a markdown block.</pre>
               <button id="copy-md-entry" class="link-button" type="button">Copy Markdown Block</button>
             </div>
+          </div>
+        </section>
+
+        <section class="card full-span">
+          <div class="section-heading">
+            <p class="eyebrow">Final Assets</p>
+            <h2>Export locker</h2>
+          </div>
+          <p class="section-text">
+            The final PNG and PDF exports will appear here as soon as they are
+            added to the repo. Until then, the dashboard keeps the expected file
+            names visible.
+          </p>
+          <div id="asset-locker" class="asset-locker">
+            <article class="asset-card pending">
+              <span class="board-status next">Checking</span>
+              <strong>Loading export status</strong>
+              <p>Looking for the final Power BI assets.</p>
+            </article>
           </div>
         </section>
 

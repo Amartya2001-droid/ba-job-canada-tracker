@@ -37,6 +37,8 @@ const finishGateItems = [
     id: "wait-times-png",
     label: "Wait Times PNG",
     url: "../assets/screenshots/wait-times-dashboard.png",
+    assetType: "image",
+    previewUrl: "../assets/screenshots/wait-times-dashboard-preview.svg",
     pendingText: "Missing final exported dashboard image.",
     readyText: "Final exported dashboard image is present.",
   },
@@ -44,6 +46,8 @@ const finishGateItems = [
     id: "access-coverage-png",
     label: "Access Coverage PNG",
     url: "../assets/screenshots/access-coverage-dashboard.png",
+    assetType: "image",
+    previewUrl: "../assets/screenshots/access-coverage-dashboard-preview.svg",
     pendingText: "Missing final exported dashboard image.",
     readyText: "Final exported dashboard image is present.",
   },
@@ -51,6 +55,8 @@ const finishGateItems = [
     id: "portfolio-pdf",
     label: "Portfolio PDF",
     url: "../assets/screenshots/healthcare-ba-portfolio.pdf",
+    assetType: "pdf",
+    guideUrl: "../docs/powerbi-export-pack.md",
     pendingText: "Missing final send-ready PDF proof pack.",
     readyText: "Final send-ready PDF proof pack is present.",
   },
@@ -59,6 +65,39 @@ const finishGateItems = [
 let activeRows = [];
 let activeConfig = datasets["wait-times"];
 let toastTimeout;
+let latestApplicationRows = [];
+let latestFinishStatuses = [];
+
+const entryFieldSelectors = [
+  "#entry-company",
+  "#entry-role",
+  "#entry-location",
+  "#entry-job-link",
+  "#entry-required-tools",
+  "#entry-matching-tools",
+  "#entry-stack-match",
+  "#entry-domain-fit",
+  "#entry-proof-asset",
+  "#entry-status",
+  "#entry-follow-up",
+  "#entry-notes",
+];
+
+const entryStorageKey = "healthcare-ba-entry-helper";
+const sampleEntryValues = {
+  "#entry-company": "Nova Scotia Health",
+  "#entry-role": "Business Analyst",
+  "#entry-location": "Halifax, NS",
+  "#entry-job-link": "https://example.com/healthcare-ba-role",
+  "#entry-required-tools": "SQL, Power BI, Excel, stakeholder reporting",
+  "#entry-matching-tools": "SQL, Power BI, Excel",
+  "#entry-stack-match": "4/5",
+  "#entry-domain-fit": "Healthcare operations analytics and KPI reporting",
+  "#entry-proof-asset": "wait-times-dashboard-preview.svg",
+  "#entry-status": "shortlist",
+  "#entry-follow-up": "2026-07-31",
+  "#entry-notes": "Lead with the wait-times p95 delay insight and dashboard story.",
+};
 
 function escapeHtml(value) {
   return String(value)
@@ -215,7 +254,12 @@ async function checkAssetStatus(item) {
     if (!response.ok) {
       return {
         status: "pending",
+        id: item.id,
         label: item.label,
+        url: item.url,
+        assetType: item.assetType,
+        previewUrl: item.previewUrl,
+        guideUrl: item.guideUrl,
         description: item.pendingText,
         detail: "Add the final export to assets/screenshots/.",
       };
@@ -223,14 +267,24 @@ async function checkAssetStatus(item) {
 
     return {
       status: "ready",
+      id: item.id,
       label: item.label,
+      url: item.url,
+      assetType: item.assetType,
+      previewUrl: item.previewUrl,
+      guideUrl: item.guideUrl,
       description: item.readyText,
       detail: "Asset found in assets/screenshots/.",
     };
   } catch {
     return {
       status: "pending",
+      id: item.id,
       label: item.label,
+      url: item.url,
+      assetType: item.assetType,
+      previewUrl: item.previewUrl,
+      guideUrl: item.guideUrl,
       description: item.pendingText,
       detail: "Could not verify the asset from the current page load.",
     };
@@ -395,7 +449,9 @@ async function renderApplicationBoard() {
     }
 
     const rows = getRealApplicationRows(parseCsv(await response.text()));
+    latestApplicationRows = rows;
     renderApplicationSummary(rows);
+    renderFinishCoach();
     if (!rows.length) {
       container.innerHTML = `
         <article class="application-card empty">
@@ -409,7 +465,9 @@ async function renderApplicationBoard() {
 
     container.innerHTML = rows.slice(0, 5).map(renderApplicationCard).join("");
   } catch (error) {
+    latestApplicationRows = [];
     renderApplicationSummary([]);
+    renderFinishCoach();
     container.innerHTML = `
       <article class="application-card empty">
         <span class="board-status next">Pending</span>
@@ -428,9 +486,10 @@ async function renderFinishGate() {
 
   const assetStatuses = await Promise.all(finishGateItems.map(checkAssetStatus));
   const applicationStatus = await checkApplicationStatus();
-  container.innerHTML = [...assetStatuses, applicationStatus]
-    .map(renderFinishGateCard)
-    .join("");
+  latestFinishStatuses = [...assetStatuses, applicationStatus];
+  container.innerHTML = latestFinishStatuses.map(renderFinishGateCard).join("");
+  renderAssetLocker(latestFinishStatuses);
+  renderFinishCoach();
 }
 
 function showToast(message) {
@@ -445,17 +504,74 @@ function showToast(message) {
   toastTimeout = setTimeout(() => toast.classList.remove("visible"), 2200);
 }
 
-async function copyText(value) {
+async function copyText(value, successMessage = "Copied to clipboard.") {
   try {
     await navigator.clipboard.writeText(value);
-    showToast("Pitch copied to clipboard.");
+    showToast(successMessage);
   } catch {
-    showToast("Copy failed. Select the text manually from the project card.");
+    showToast("Copy failed. Select the text manually from the dashboard.");
   }
 }
 
 function getEntryValue(id) {
   return document.querySelector(id)?.value?.trim() ?? "";
+}
+
+function setEntryValue(id, value) {
+  const input = document.querySelector(id);
+  if (input) {
+    input.value = value;
+  }
+}
+
+function saveEntryDraft() {
+  const payload = Object.fromEntries(
+    entryFieldSelectors.map((selector) => [selector, getEntryValue(selector)]),
+  );
+
+  try {
+    localStorage.setItem(entryStorageKey, JSON.stringify(payload));
+  } catch {
+    // Ignore storage issues and keep the helper usable.
+  }
+}
+
+function restoreEntryDraft() {
+  try {
+    const saved = localStorage.getItem(entryStorageKey);
+    if (!saved) {
+      return;
+    }
+
+    const payload = JSON.parse(saved);
+    entryFieldSelectors.forEach((selector) => {
+      if (typeof payload?.[selector] === "string") {
+        setEntryValue(selector, payload[selector]);
+      }
+    });
+  } catch {
+    // Ignore malformed drafts and allow a fresh start.
+  }
+}
+
+function clearEntryDraft() {
+  entryFieldSelectors.forEach((selector) => setEntryValue(selector, ""));
+  try {
+    localStorage.removeItem(entryStorageKey);
+  } catch {
+    // Ignore storage cleanup issues.
+  }
+  renderEntryHelperOutputs();
+  showToast("Entry helper draft cleared.");
+}
+
+function fillEntrySample() {
+  Object.entries(sampleEntryValues).forEach(([selector, value]) =>
+    setEntryValue(selector, value),
+  );
+  saveEntryDraft();
+  renderEntryHelperOutputs();
+  showToast("Healthcare sample loaded into the entry helper.");
 }
 
 function buildEntryCsvRow() {
@@ -524,6 +640,129 @@ function renderEntryHelperOutputs() {
   mdOutput.textContent = buildEntryMarkdownBlock();
 }
 
+function renderFinishCoach() {
+  const container = document.querySelector("#finish-coach");
+  if (!container) {
+    return;
+  }
+
+  if (!latestFinishStatuses.length) {
+    container.innerHTML = `
+      <article class="coach-card">
+        <span class="board-status next">Checking</span>
+        <strong>Loading finish guidance</strong>
+        <p>Reviewing export assets and application tracker progress.</p>
+      </article>
+    `;
+    return;
+  }
+
+  const missingAssets = latestFinishStatuses.filter(
+    (item) => item.label !== "Application Tracker" && item.status !== "ready",
+  );
+  const applicationStatus = latestFinishStatuses.find((item) => item.label === "Application Tracker");
+  const realApplicationCount = latestApplicationRows.length;
+  const statusClass = missingAssets.length === 0 && realApplicationCount >= 5 ? "ready" : "next";
+  const statusLabel = statusClass === "ready" ? "Ready" : "Focus";
+
+  let headline = "Export the final Power BI proof assets";
+  let message =
+    "The repo build is strong. The main blocker is still the final PNG and PDF export pack.";
+
+  if (!missingAssets.length && realApplicationCount < 5) {
+    headline = "Fill the first five healthcare applications";
+    message =
+      "The visual proof is ready, so the next move is replacing tracker placeholders with real healthcare roles.";
+  } else if (!missingAssets.length && realApplicationCount >= 5) {
+    headline = "Run the final rehearsal and send-ready pass";
+    message =
+      "The export pack and first five roles are in place. Finish with a final walkthrough and selective applications.";
+  }
+
+  const missingAssetLabels = missingAssets.length
+    ? missingAssets.map((item) => item.label).join(", ")
+    : "No export blockers";
+
+  container.innerHTML = `
+    <article class="coach-card">
+      <span class="board-status ${statusClass}">${escapeHtml(statusLabel)}</span>
+      <strong>${escapeHtml(headline)}</strong>
+      <p>${escapeHtml(message)}</p>
+      <div class="coach-metrics">
+        <div class="summary-pill">
+          <span>Missing exports</span>
+          <strong>${escapeHtml(String(missingAssets.length))}</strong>
+        </div>
+        <div class="summary-pill">
+          <span>Application rows</span>
+          <strong>${escapeHtml(`${realApplicationCount} / 5`)}</strong>
+        </div>
+        <div class="summary-pill">
+          <span>Tracker status</span>
+          <strong>${escapeHtml(applicationStatus?.status === "ready" ? "Ready" : "Pending")}</strong>
+        </div>
+      </div>
+      <p class="metric-note">Current blockers: ${escapeHtml(missingAssetLabels)}</p>
+      <div class="resource-links">
+        <a href="../docs/powerbi-export-pack.md">Open Export Pack</a>
+        <a href="../tracker/applications.csv">Open applications.csv</a>
+        <a href="../docs/final-submission-runbook.md">Open Submission Runbook</a>
+      </div>
+    </article>
+  `;
+}
+
+function renderAssetLocker(statuses) {
+  const container = document.querySelector("#asset-locker");
+  if (!container) {
+    return;
+  }
+
+  container.innerHTML = statuses
+    .filter((item) => item.label !== "Application Tracker")
+    .map((item) => {
+      const statusClass = item.status === "ready" ? "ready" : "pending";
+      const statusLabel = item.status === "ready" ? "Ready" : "Pending";
+      const preview =
+        item.assetType === "image"
+          ? `
+            <div class="asset-preview">
+              <img
+                src="${escapeHtml(item.status === "ready" ? item.url : item.previewUrl)}"
+                alt="${escapeHtml(item.label)}"
+              />
+            </div>
+          `
+          : `
+            <div class="asset-preview asset-preview-pdf">
+              <span>PDF</span>
+            </div>
+          `;
+
+      const actionUrl =
+        item.status === "ready" ? item.url : item.guideUrl || "../docs/powerbi-export-pack.md";
+      const actionLabel = item.status === "ready" ? "Open Asset" : "Open Export Guide";
+      const detail =
+        item.status === "ready"
+          ? "Final asset committed in the repo."
+          : item.url.replace("../assets/screenshots/", "Expected file: ");
+
+      return `
+        <article class="asset-card ${statusClass}">
+          <span class="board-status ${item.status === "ready" ? "ready" : "next"}">${escapeHtml(statusLabel)}</span>
+          <strong>${escapeHtml(item.label)}</strong>
+          ${preview}
+          <p>${escapeHtml(item.description)}</p>
+          <p class="metric-note">${escapeHtml(detail)}</p>
+          <div class="resource-links">
+            <a href="${escapeHtml(actionUrl)}">${escapeHtml(actionLabel)}</a>
+          </div>
+        </article>
+      `;
+    })
+    .join("");
+}
+
 async function loadDataset(key) {
   const config = datasets[key];
   const table = document.querySelector("#data-table");
@@ -573,35 +812,35 @@ if (search) {
 }
 
 copyButtons.forEach((button) => {
-  button.addEventListener("click", () => copyText(button.dataset.copy ?? ""));
+  button.addEventListener("click", () =>
+    copyText(button.dataset.copy ?? "", "Pitch copied to clipboard."),
+  );
 });
 
-[
-  "#entry-company",
-  "#entry-role",
-  "#entry-location",
-  "#entry-job-link",
-  "#entry-required-tools",
-  "#entry-matching-tools",
-  "#entry-stack-match",
-  "#entry-domain-fit",
-  "#entry-proof-asset",
-  "#entry-status",
-  "#entry-follow-up",
-  "#entry-notes",
-].forEach((selector) => {
+entryFieldSelectors.forEach((selector) => {
   const input = document.querySelector(selector);
-  input?.addEventListener("input", renderEntryHelperOutputs);
+  input?.addEventListener("input", () => {
+    saveEntryDraft();
+    renderEntryHelperOutputs();
+  });
 });
 
 document
   .querySelector("#copy-csv-entry")
-  ?.addEventListener("click", () => copyText(buildEntryCsvRow()));
+  ?.addEventListener("click", () =>
+    copyText(buildEntryCsvRow(), "CSV application row copied to clipboard."),
+  );
 
 document
   .querySelector("#copy-md-entry")
-  ?.addEventListener("click", () => copyText(buildEntryMarkdownBlock()));
+  ?.addEventListener("click", () =>
+    copyText(buildEntryMarkdownBlock(), "Worksheet markdown block copied to clipboard."),
+  );
 
+document.querySelector("#clear-entry-helper")?.addEventListener("click", clearEntryDraft);
+document.querySelector("#fill-entry-sample")?.addEventListener("click", fillEntrySample);
+
+restoreEntryDraft();
 renderFinishGate();
 renderApplicationBoard();
 renderEntryHelperOutputs();
