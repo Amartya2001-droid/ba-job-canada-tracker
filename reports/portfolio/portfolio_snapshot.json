@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-07-27T21:28:26Z",
+  "industry_focus": "Healthcare",
+  "primary_stack": "SQL + Power BI",
+  "healthcare_outputs_ready": true,
+  "frontend_ready": true,
+  "tracker_ready": false,
+  "final_assets_present": 0,
+  "final_assets_expected": 3,
+  "preview_assets_present": 2,
+  "preview_assets_expected": 2,
+  "required_docs_present": 5,
+  "required_docs_expected": 5,
+  "application_rows": 0,
+  "application_rows_target": 5,
+  "pending_items": ["final_power_bi_exports","first_five_real_applications","application_readiness"]
+}
