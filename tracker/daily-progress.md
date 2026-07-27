@@ -95,3 +95,4 @@ Current state:
 - The frontend can now summarize application activity as soon as real rows are logged, which makes the job pipeline more visible in the portfolio itself.
 - The frontend can now generate copy-ready application tracker snippets, which should make filling the first five roles noticeably faster.
 - The repo now also has a CLI helper that can print or append a real application row without manual CSV formatting.
+- The frontend now keeps entry-helper drafts in the browser, can preload a healthcare sample role, and shows a finish coach plus export locker for the remaining launch blockers.

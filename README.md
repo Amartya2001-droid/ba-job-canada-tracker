@@ -39,7 +39,7 @@ Then open:
 http://127.0.0.1:4174/frontend/index.html
 ```
 
-The frontend includes project summaries, direct links to portfolio assets, a live CSV explorer that reads files from `reports/sqlite/`, a live finish gate for final export assets, a live application board plus summary fed by `tracker/applications.csv`, and an entry helper that generates copy-ready application tracker rows.
+The frontend includes project summaries, direct links to portfolio assets, a live CSV explorer that reads files from `reports/sqlite/`, a live finish gate for final export assets, a finish coach that recommends the next best move, a live application board plus summary fed by `tracker/applications.csv`, an export locker for final PNG/PDF proof files, and an entry helper that generates copy-ready application tracker rows while saving draft progress locally in the browser.
 
 ## Production Path
 
@@ -64,7 +64,7 @@ Repo-native dashboard previews are available while the final Power BI PNG/PDF ex
 
 ## Finish Gate
 
-Use `docs/project-finish-checklist.md` to see what is still left before the project is fully finished.
+Use `docs/project-finish-checklist.md` to see what is still left before the project is fully finished. The frontend now mirrors this with a live finish coach and export locker so the remaining blockers are visible from the homepage.
 
 ## Repo Structure
 
