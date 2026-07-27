@@ -39,7 +39,7 @@ Then open:
 http://127.0.0.1:4174/frontend/index.html
 ```
 
-The frontend includes project summaries, direct links to portfolio assets, a live CSV explorer that reads files from `reports/sqlite/`, a live finish gate for final export assets, a finish coach that recommends the next best move, a live application board plus summary fed by `tracker/applications.csv`, an export locker for final PNG/PDF proof files, and an entry helper that generates copy-ready application tracker rows while saving draft progress locally in the browser.
+The frontend includes project summaries, direct links to portfolio assets, a live CSV explorer that reads files from `reports/sqlite/`, a machine-readable portfolio snapshot section, a live finish gate for final export assets, a finish coach that recommends the next best move, a live application board plus summary fed by `tracker/applications.csv`, an export locker for final PNG/PDF proof files, a command center for validation commands, and an entry helper that generates copy-ready application tracker rows while saving draft progress locally in the browser.
 
 ## Production Path
 
@@ -50,8 +50,11 @@ The frontend has been updated to use deploy-safe relative paths, and the repo no
 - Submission runbook: `docs/final-submission-runbook.md`
 - Finish status script: `scripts/print_finish_status.sh`
 - Verification script: `scripts/verify_portfolio_ready.sh`
+- Frontend link validator: `scripts/check_frontend_links.sh`
 - Application readiness script: `scripts/check_application_readiness.sh`
+- Tracker consistency script: `scripts/check_tracker_consistency.sh`
 - Application entry helper: `scripts/add_application_entry.sh`
+- Portfolio snapshot export: `scripts/export_portfolio_snapshot.sh`
 - Verification workflow: `.github/workflows/verify-portfolio.yml`
 - Workflow: `.github/workflows/deploy-pages.yml`
 
@@ -64,7 +67,7 @@ Repo-native dashboard previews are available while the final Power BI PNG/PDF ex
 
 ## Finish Gate
 
-Use `docs/project-finish-checklist.md` to see what is still left before the project is fully finished. The frontend now mirrors this with a live finish coach and export locker so the remaining blockers are visible from the homepage.
+Use `docs/project-finish-checklist.md` to see what is still left before the project is fully finished. The frontend now mirrors this with a live finish coach, export locker, and generated portfolio snapshot so the remaining blockers are visible from the homepage.
 
 ## Repo Structure
 
@@ -99,12 +102,16 @@ Use `docs/final-5-day-finish-plan.md` for the current closing-stretch sequence.
 - Use `scripts/build_healthcare_sqlite.sh` to create a local SQLite database after the raw files are extracted.
 - Use `scripts/check_healthcare_outputs.sh` after report generation to confirm the expected wait-time and province coverage outputs are present.
 - Use `docs/application-proof-checklist.md` before sending applications so every role includes the right proof links.
+- Use `docs/application-tracker-workflow.md` when you start filling real application rows.
 - Use `docs/send-ready-application-package.md` when you are actually about to submit a role.
 - Use `docs/production-launch-checklist.md` before publishing the dashboard publicly.
 - Use `docs/github-pages-deployment.md` when enabling the public portfolio URL.
 - Use `scripts/print_finish_status.sh` when you want one quick snapshot of what is still missing.
 - Use `scripts/verify_portfolio_ready.sh` before pushing final launch changes.
+- Use `scripts/check_frontend_links.sh` if you want to isolate path or asset-link issues in the frontend.
 - Use `scripts/check_application_readiness.sh` before sending the first real application batch.
+- Use `scripts/check_tracker_consistency.sh` before trusting the quality of the tracked application rows.
+- Use `scripts/export_portfolio_snapshot.sh` to regenerate the machine-readable homepage snapshot.
 - Use `scripts/add_application_entry.sh --help` when you want to generate a real tracker row without hand-formatting it.
 
 ## Next Step

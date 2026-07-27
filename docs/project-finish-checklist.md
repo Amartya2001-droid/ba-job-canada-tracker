@@ -9,11 +9,13 @@ Use this as the final completion gate for the healthcare BA portfolio.
 - Ontario is included in the access coverage output after source-label normalization.
 - Frontend dashboard is live locally and links the supporting portfolio assets.
 - Frontend dashboard is now deploy-safe for static hosting and GitHub Pages.
+- Frontend dashboard now includes a generated portfolio snapshot section and command center.
 - Frontend dashboard now includes a live finish gate for final exports and application-row progress.
 - Frontend dashboard now includes a finish coach and export locker so the next blocker is visible immediately.
 - Frontend dashboard now includes a live application board and summary fed by `tracker/applications.csv`.
 - Frontend dashboard now includes an application entry helper for generating CSV and markdown tracker entries, saving drafts locally, and preloading a healthcare sample row.
 - A CLI application entry helper now exists for generating or appending real CSV rows.
+- Dedicated frontend-link and tracker-consistency validators now exist for the final stretch.
 - Repo-native dashboard preview SVGs exist for both projects.
 - Resume, interview, application, and cover-note support docs exist.
 - A final submission runbook and application-readiness validator now exist.

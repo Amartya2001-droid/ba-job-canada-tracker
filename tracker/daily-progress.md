@@ -96,3 +96,4 @@ Current state:
 - The frontend can now generate copy-ready application tracker snippets, which should make filling the first five roles noticeably faster.
 - The repo now also has a CLI helper that can print or append a real application row without manual CSV formatting.
 - The frontend now keeps entry-helper drafts in the browser, can preload a healthcare sample role, and shows a finish coach plus export locker for the remaining launch blockers.
+- The repo now also supports a generated portfolio snapshot, dedicated frontend-link validation, and tracker-consistency checks for the final production stretch.

@@ -15,6 +15,7 @@ This gives one summary view of:
 - healthcare output validation
 - portfolio readiness
 - application readiness
+- tracker consistency
 - final PNG/PDF export presence
 
 ## 1. Confirm Data Outputs
@@ -42,14 +43,17 @@ This confirms the frontend, required docs, preview assets, and report outputs ar
 Run:
 
 ```bash
+./scripts/check_tracker_consistency.sh
 ./scripts/check_application_readiness.sh
 ```
 
-This confirms:
+These confirm:
 
 - `tracker/first-five-applications.md` no longer has placeholders
 - `tracker/applications.csv` has at least 5 real rows
 - key application fields are filled for each real row
+- duplicate job links are not being tracked twice
+- follow-up dates stay in `YYYY-MM-DD` format
 
 If you want help generating a real row quickly, use:
 
@@ -57,7 +61,13 @@ If you want help generating a real row quickly, use:
 ./scripts/add_application_entry.sh --help
 ```
 
-This prints a copy-ready CSV row and markdown block for one real job entry.
+This prints a copy-ready CSV row and markdown block for one real job entry, and it can also append to both tracker files directly.
+
+If you want the homepage snapshot to reflect your latest state, run:
+
+```bash
+./scripts/export_portfolio_snapshot.sh
+```
 
 ## 4. Final Manual Checks
 
