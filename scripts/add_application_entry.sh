@@ -4,6 +4,7 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 APPLICATIONS_CSV="$ROOT_DIR/tracker/applications.csv"
+FIRST_FIVE_MD="$ROOT_DIR/tracker/first-five-applications.md"
 
 usage() {
   cat <<'EOF'
@@ -21,7 +22,9 @@ Usage:
     --status "shortlist" \
     --follow-up-date "2026-07-28" \
     --notes "Strong healthcare fit, reporting-heavy role" \
-    [--append-csv]
+    [--append-csv] \
+    [--append-markdown] \
+    [--application-number 3]
 
 Required flags:
   --company
@@ -39,6 +42,8 @@ Optional flags:
   --follow-up-date
   --notes
   --append-csv      Append the generated CSV row to tracker/applications.csv
+  --append-markdown Append a formatted block to tracker/first-five-applications.md
+  --application-number 1-5 heading number to use when appending markdown
   --help            Show this help text
 
 This helper prints:
@@ -70,6 +75,8 @@ status=""
 follow_up_date=""
 notes=""
 append_csv="false"
+append_markdown="false"
+application_number=""
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -86,6 +93,8 @@ while [[ $# -gt 0 ]]; do
     --follow-up-date) follow_up_date="${2:-}"; shift 2 ;;
     --notes) notes="${2:-}"; shift 2 ;;
     --append-csv) append_csv="true"; shift ;;
+    --append-markdown) append_markdown="true"; shift ;;
+    --application-number) application_number="${2:-}"; shift 2 ;;
     --help) usage; exit 0 ;;
     *)
       echo "Unknown argument: $1" >&2
@@ -116,6 +125,11 @@ for value in "${required_values[@]}"; do
   fi
 done
 
+if [[ -n "$application_number" && ! "$application_number" =~ ^[1-5]$ ]]; then
+  echo "--application-number must be a value from 1 to 5." >&2
+  exit 1
+fi
+
 today="$(date +%F)"
 
 csv_row="$(
@@ -135,7 +149,13 @@ csv_row="$(
     "$(csv_escape "$notes")"
 )"
 
+heading_prefix=""
+if [[ -n "$application_number" ]]; then
+  heading_prefix="## Application $application_number"$'\n'
+fi
+
 markdown_block=$(cat <<EOF
+${heading_prefix}
 - company: $company
 - role: $role
 - location: $location
@@ -159,4 +179,13 @@ if [[ "$append_csv" == "true" ]]; then
   echo "$csv_row" >> "$APPLICATIONS_CSV"
   echo
   echo "Appended row to tracker/applications.csv"
+fi
+
+if [[ "$append_markdown" == "true" ]]; then
+  {
+    echo
+    echo "$markdown_block"
+  } >> "$FIRST_FIVE_MD"
+  echo
+  echo "Appended block to tracker/first-five-applications.md"
 fi

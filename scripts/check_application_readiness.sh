@@ -57,4 +57,6 @@ if [[ "$INVALID_ROWS" -gt 0 ]]; then
   exit 1
 fi
 
+"$ROOT_DIR/scripts/check_tracker_consistency.sh" >/dev/null
+
 echo "Application readiness checks passed."
