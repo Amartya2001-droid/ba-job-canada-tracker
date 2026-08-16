@@ -97,3 +97,4 @@ Current state:
 - The repo now also has a CLI helper that can print or append a real application row without manual CSV formatting.
 - The frontend now keeps entry-helper drafts in the browser, can preload a healthcare sample role, and shows a finish coach plus export locker for the remaining launch blockers.
 - The repo now also supports a generated portfolio snapshot, dedicated frontend-link validation, and tracker-consistency checks for the final production stretch.
+- 2026-08-16: The first five real healthcare application targets are now logged. The batch covers Sunnybrook (two BA roles), PHSA (BA - FP&A, best stack fit with Power BI and Excel named in the posting), Partners Community Health (Senior BI Specialist, exact SQL/Power BI stack), and Costello Medical (Value and Access). The application-readiness gate now passes, so the only remaining finish blocker is the final Power BI PNG/PDF export set.
