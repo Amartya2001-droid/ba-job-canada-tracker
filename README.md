@@ -12,6 +12,7 @@ Build proof of work for a Canadian healthcare focus, turn public data into portf
 - Generated 2 SQLite-backed CSV outputs ready for Power BI.
 - Added a local frontend dashboard to preview project progress and explore report outputs.
 - Drafted recruiter-facing assets including resume bullets, interview stories, cover-note variants, and dashboard build notes.
+- Logged the first five real healthcare application targets (verified live 2026-08-16) with links, posted dates, stack-match scores, and an apply-order rationale in `docs/application-shortlist-rationale.md`.
 - Maintained a commit trail so the repo shows consistent project progress.
 
 ## Sprint Focus
@@ -54,6 +55,8 @@ The frontend has been updated to use deploy-safe relative paths, and the repo no
 - Application readiness script: `scripts/check_application_readiness.sh`
 - Tracker consistency script: `scripts/check_tracker_consistency.sh`
 - Application entry helper: `scripts/add_application_entry.sh`
+- Follow-up reminders: `scripts/print_followup_reminders.sh`
+- Application shortlist rationale: `docs/application-shortlist-rationale.md`
 - Portfolio snapshot export: `scripts/export_portfolio_snapshot.sh`
 - Verification workflow: `.github/workflows/verify-portfolio.yml`
 - Workflow: `.github/workflows/deploy-pages.yml`
