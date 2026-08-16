@@ -130,6 +130,17 @@ if [[ -n "$application_number" && ! "$application_number" =~ ^[1-5]$ ]]; then
   exit 1
 fi
 
+# The tracker validators split CSV rows on raw commas, so a comma inside any
+# field would shift column positions even when the field is quoted.
+all_field_values=("${required_values[@]}" "$follow_up_date" "$notes")
+for value in "${all_field_values[@]}"; do
+  if [[ "$value" == *","* ]]; then
+    echo "Field values must not contain commas (found in: $value)." >&2
+    echo "Use semicolons instead, e.g. \"SQL; Power BI; Excel\" or \"Toronto ON\"." >&2
+    exit 1
+  fi
+done
+
 today="$(date +%F)"
 
 csv_row="$(
