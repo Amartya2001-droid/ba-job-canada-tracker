@@ -5,6 +5,7 @@ Use this file when you are about to submit a real application.
 ## What To Open Before Applying
 
 - `docs/application-proof-checklist.md`
+- `docs/application-shortlist-rationale.md` (apply order and why each role was chosen)
 - `docs/final-interview-walkthrough-kit.md`
 - `tracker/first-five-applications.md`
 - `tracker/applications.csv`
@@ -36,3 +37,7 @@ Use this file when you are about to submit a real application.
 - Add a row to `tracker/applications.csv`
 - Set a follow-up date
 - Record any custom note about the role, hiring team, or screening question
+
+## Tracking Follow-Ups
+
+Run `./scripts/print_followup_reminders.sh` (optionally pass a window in days, e.g. `7`) to see which logged applications have a follow-up due or overdue.
