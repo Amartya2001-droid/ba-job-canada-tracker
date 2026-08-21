@@ -14,8 +14,8 @@
 
 ### Wednesday
 - Publish one LinkedIn post about a project insight or dashboard
-- Reach out to 2 professionals using the networking template
-- Update `tracker/networking.csv`
+- Reach out to 2 professionals using `templates/networking-message-template.md`, prioritizing the target-company openers for companies already on the shortlist
+- Update `tracker/networking.csv` following `docs/networking-outreach-workflow.md`, then run `./scripts/check_networking_tracker.sh`
 
 ### Thursday
 - Refine one portfolio asset
@@ -23,6 +23,7 @@
 - Practice your project walkthrough in under 90 seconds
 
 ### Friday
+- Run `./scripts/print_followup_reminders.sh` to see which applications and networking messages need a follow-up
 - Send follow-ups for earlier applications or networking messages
 - Review which roles had the best fit and strongest response
 - Adjust next week’s shortlist criteria if needed
