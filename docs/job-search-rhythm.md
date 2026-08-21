@@ -23,7 +23,7 @@
 - Practice your project walkthrough in under 90 seconds
 
 ### Friday
-- Run `./scripts/print_followup_reminders.sh` to see which applications and networking messages need a follow-up
+- Run `./scripts/print_followup_reminders.sh` to see which logged applications have a follow-up due
 - Send follow-ups for earlier applications or networking messages
 - Review which roles had the best fit and strongest response
 - Adjust next week’s shortlist criteria if needed
