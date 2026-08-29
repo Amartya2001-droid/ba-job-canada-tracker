@@ -1,6 +1,6 @@
 # Application Tracker Workflow
 
-Use this when you start replacing placeholders with real healthcare roles.
+Use this whenever you add, update, or retire a role in the application tracker.
 
 ## Goal
 
@@ -62,3 +62,9 @@ Learned the hard way on 2026-08-16 while logging the first real batch:
 - **Quote dollar amounts carefully in the shell.** In a double-quoted `--notes` argument, `$43/hr` expands `$4` as a positional parameter and silently becomes `3/hr`. Use single quotes around notes that contain dollar signs, or escape them (`\$43/hr`).
 - **Follow-up dates must be `YYYY-MM-DD`.** The consistency checker enforces this format.
 - **Record the posted date in the notes.** Postings expire; the posted date makes it obvious when a link needs re-verification before applying.
+
+## Related Docs
+
+- `docs/application-shortlist-rationale.md` — why each current target was chosen and the recommended apply order
+- `scripts/print_followup_reminders.sh` — see which logged rows have a follow-up due
+- `docs/networking-outreach-workflow.md` — the equivalent workflow for `tracker/networking.csv`
