@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T03:34:46Z",
+  "generated_at": "2026-08-29T18:06:01Z",
   "industry_focus": "Healthcare",
   "primary_stack": "SQL + Power BI",
   "healthcare_outputs_ready": true,
@@ -13,5 +13,6 @@
   "required_docs_expected": 5,
   "application_rows": 5,
   "application_rows_target": 5,
+  "networking_rows": 0,
   "pending_items": ["final_power_bi_exports"]
 }

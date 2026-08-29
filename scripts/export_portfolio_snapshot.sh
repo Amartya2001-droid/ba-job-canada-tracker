@@ -5,6 +5,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 OUTPUT_PATH="$ROOT_DIR/reports/portfolio/portfolio_snapshot.json"
 APPLICATIONS_CSV="$ROOT_DIR/tracker/applications.csv"
+NETWORKING_CSV="$ROOT_DIR/tracker/networking.csv"
 
 mkdir -p "$(dirname "$OUTPUT_PATH")"
 
@@ -29,13 +30,14 @@ json_escape() {
   printf '%s' "$value"
 }
 
-count_application_rows() {
-  if [[ ! -f "$APPLICATIONS_CSV" ]]; then
+count_csv_rows() {
+  local csv_path="$1"
+  if [[ ! -f "$csv_path" ]]; then
     printf '0'
     return
   fi
 
-  tail -n +2 "$APPLICATIONS_CSV" | awk -F',' '
+  tail -n +2 "$csv_path" | awk -F',' '
     {
       nonempty = 0
       for (i = 1; i <= NF; i++) {
@@ -73,7 +75,8 @@ required_doc_paths=(
 final_assets_present="$(count_existing_files "${final_asset_paths[@]}")"
 preview_assets_present="$(count_existing_files "${preview_asset_paths[@]}")"
 required_docs_present="$(count_existing_files "${required_doc_paths[@]}")"
-application_rows="$(count_application_rows)"
+application_rows="$(count_csv_rows "$APPLICATIONS_CSV")"
+networking_rows="$(count_csv_rows "$NETWORKING_CSV")"
 generated_at="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
 
 healthcare_outputs_ready="false"
@@ -127,6 +130,7 @@ cat >"$OUTPUT_PATH" <<EOF
   "required_docs_expected": 5,
   "application_rows": $application_rows,
   "application_rows_target": 5,
+  "networking_rows": $networking_rows,
   "pending_items": [${pending_json}]
 }
 EOF
