@@ -21,9 +21,9 @@ Use this checklist during the final week before you start sharing the repo in re
 
 ## 3. Application Inputs
 
-- Replace placeholders in `tracker/first-five-applications.md`.
-- Fill `tracker/applications.csv` with five real target roles.
-- Keep applications limited to healthcare, public-sector, or adjacent analyst roles with strong stack overlap.
+- Done as of 2026-08-16: `tracker/first-five-applications.md` and `tracker/applications.csv` both hold five verified healthcare roles (see `docs/application-shortlist-rationale.md` for apply order).
+- Keep applications limited to healthcare, public-sector, or adjacent analyst roles with strong stack overlap as new rows are added.
+- Run `./scripts/print_followup_reminders.sh` before each application session to catch due follow-ups.
 
 ## 4. Messaging QA
 
