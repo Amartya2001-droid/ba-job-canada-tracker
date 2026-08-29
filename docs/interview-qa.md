@@ -24,6 +24,10 @@ I used SQL and SQLite to prepare the data, calculate KPIs, and generate summary 
 
 One challenge was handling the healthcare population source because it was large and Ontario used a different source label. I handled that by building a filtered 2025 population extract and normalizing `Ontario by Ontario Health Region` to province-level `Ontario` so the dashboard comparison stayed consistent.
 
+## How Do You Decide Which Roles To Apply To?
+
+I score each posting against my actual stack overlap rather than applying broadly. For my first real batch, I researched live healthcare postings, verified each one was still open, and scored stack match honestly, including where a posting was a stretch, for example a senior title with strong tool overlap versus a hospital BA role with less analytics overlap but strong domain fit. I documented the reasoning and apply order in one file so the prioritization itself is visible, not just the outcome. That same discipline is how I would approach a stakeholder request to prioritize a backlog: score against clear criteria, write down the reasoning, and revisit it as new information comes in.
+
 ## How Would You Communicate Findings To A Non-Technical Stakeholder?
 
 I would keep the message focused on the business question, the key metric, and the decision implication. For example, in the wait-times project I would avoid leading with SQL details and instead explain that median wait time alone can understate patient access pressure, especially for non-emergency surgeries.
