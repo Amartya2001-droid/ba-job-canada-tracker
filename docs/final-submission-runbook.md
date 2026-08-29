@@ -69,6 +69,14 @@ If you want the homepage snapshot to reflect your latest state, run:
 ./scripts/export_portfolio_snapshot.sh
 ```
 
+Before applying, check which logged applications have a follow-up coming due, and confirm the target role is still the right one to apply to next:
+
+```bash
+./scripts/print_followup_reminders.sh
+```
+
+See `docs/application-shortlist-rationale.md` for the recommended apply order and why each role was chosen.
+
 ## 4. Final Manual Checks
 
 - Final Power BI PNG exports exist in `assets/screenshots/`
