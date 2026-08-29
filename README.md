@@ -56,7 +56,9 @@ The frontend has been updated to use deploy-safe relative paths, and the repo no
 - Tracker consistency script: `scripts/check_tracker_consistency.sh`
 - Application entry helper: `scripts/add_application_entry.sh`
 - Follow-up reminders: `scripts/print_followup_reminders.sh`
+- Networking tracker validator: `scripts/check_networking_tracker.sh`
 - Application shortlist rationale: `docs/application-shortlist-rationale.md`
+- Networking outreach workflow: `docs/networking-outreach-workflow.md`
 - Portfolio snapshot export: `scripts/export_portfolio_snapshot.sh`
 - Verification workflow: `.github/workflows/verify-portfolio.yml`
 - Workflow: `.github/workflows/deploy-pages.yml`
