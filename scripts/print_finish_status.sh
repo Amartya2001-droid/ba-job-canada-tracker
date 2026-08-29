@@ -55,6 +55,10 @@ run_check "Application readiness" "\"$ROOT_DIR/scripts/check_application_readine
 run_check "Tracker consistency" "\"$ROOT_DIR/scripts/check_tracker_consistency.sh\"" "tracker_consistency"
 
 echo
+echo "Networking activity (informational, does not block finish)"
+"$ROOT_DIR/scripts/check_networking_tracker.sh" || true
+
+echo
 echo "Final export assets"
 
 check_asset "Wait Times PNG export" "$ROOT_DIR/assets/screenshots/wait-times-dashboard.png"
