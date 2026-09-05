@@ -32,3 +32,12 @@ This role stands out to me because it combines structured analysis with practica
 
 Best regards,
 [Your Name]
+
+## Portfolio Link Line
+
+Add one of these to the end of any variant above, before the sign-off:
+
+- `Portfolio: https://amartya2001-droid.github.io/ba-job-canada-tracker/frontend/index.html`
+- `GitHub: https://github.com/Amartya2001-droid/ba-job-canada-tracker`
+
+See `docs/portfolio-links.md` if either URL ever changes.
