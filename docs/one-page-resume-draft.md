@@ -3,7 +3,7 @@
 ## Name
 [Your Name]
 
-[City, Province] | [Phone] | [Email] | [LinkedIn] | [GitHub or Portfolio]
+[City, Province] | [Phone] | [Email] | [LinkedIn] | amartya2001-droid.github.io/ba-job-canada-tracker
 
 ## Headline
 Entry-Level Business Analyst | Healthcare Data Projects | SQL | Power BI | Excel
