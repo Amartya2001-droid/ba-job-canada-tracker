@@ -1,6 +1,6 @@
 # GitHub Pages Deployment Guide
 
-This repo now includes a GitHub Pages workflow so the dashboard can be published as a static portfolio site.
+Pages is live at `https://amartya2001-droid.github.io/ba-job-canada-tracker/frontend/index.html` (verified 2026-08-29). This guide covers how the deployment is set up and what to do if it ever needs re-enabling.
 
 ## What Was Prepared
 
@@ -26,18 +26,15 @@ If the first deploy happens before this setting is manually saved, the workflow 
 1. Push changes to `main`.
 2. GitHub Actions runs `Verify Portfolio Readiness`.
 3. GitHub Actions runs `Deploy Portfolio Dashboard`.
-4. After the workflow succeeds, GitHub provides the public Pages URL.
+4. The live site at the URL above updates automatically.
 
-## Recommended Launch Order
+## Remaining Launch Step
 
-1. Push the production-readiness changes.
-2. Confirm the verification workflow is green.
-3. Confirm the Pages site loads.
-4. Add the final Power BI PNG/PDF assets.
-5. Push again so the public site includes the final screenshots.
-6. Use that Pages URL inside resume, cover notes, and application tracking.
+1. Add the final Power BI PNG/PDF assets to `assets/screenshots/`.
+2. Push so the public site includes the final screenshots.
+3. The URL is already in use in resume, cover notes, and application tracking; see `docs/portfolio-links.md`.
 
 ## Notes
 
-- The site is still valuable before the final Power BI exports because the SVG previews and CSV explorer already show working proof.
-- The ideal final public version includes both the interactive dashboard and the exported Power BI screenshots.
+- The live site is already valuable proof: the SVG previews, CSV explorer, and five real logged applications all show working evidence today.
+- The only remaining gap is the exported Power BI PNG/PDF screenshots, which the live finish gate on the homepage tracks automatically.
