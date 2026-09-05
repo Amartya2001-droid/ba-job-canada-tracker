@@ -12,11 +12,13 @@ Business Analyst candidate with hands-on healthcare analytics projects built on 
 
 ## Proof Package Links
 
-- GitHub repo: `[Add repo URL]`
-- Frontend dashboard: `frontend/index.html`
+- GitHub repo: `https://github.com/Amartya2001-droid/ba-job-canada-tracker`
+- Live dashboard: `https://amartya2001-droid.github.io/ba-job-canada-tracker/frontend/index.html`
 - Wait times preview: `assets/screenshots/wait-times-dashboard-preview.svg`
 - Access coverage preview: `assets/screenshots/access-coverage-dashboard-preview.svg`
 - Final Power BI PDF: `assets/screenshots/healthcare-ba-portfolio.pdf` once exported
+
+See `docs/portfolio-links.md` for the canonical copy of both URLs.
 
 ## Cover Note Template
 
