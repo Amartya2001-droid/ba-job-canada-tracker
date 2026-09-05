@@ -2,6 +2,8 @@
 
 This repository tracks a 7-day sprint to become job-ready for a fresher Business Analyst role in Canada.
 
+**Live dashboard:** https://amartya2001-droid.github.io/ba-job-canada-tracker/frontend/index.html
+
 ## Goal
 
 Build proof of work for a Canadian healthcare focus, turn public data into portfolio-ready analysis, and track targeted applications.
