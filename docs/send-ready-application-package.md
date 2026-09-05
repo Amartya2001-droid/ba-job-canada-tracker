@@ -12,12 +12,14 @@ Use this file when you are about to submit a real application.
 
 ## Proof Package
 
-- GitHub repository
-- Frontend dashboard
+- GitHub repository: `https://github.com/Amartya2001-droid/ba-job-canada-tracker`
+- Live dashboard: `https://amartya2001-droid.github.io/ba-job-canada-tracker/frontend/index.html`
 - Wait times preview SVG
 - Access coverage preview SVG
 - Final Power BI PNGs when available
 - Final Power BI PDF when available
+
+See `docs/portfolio-links.md` for the canonical copy of both URLs.
 
 ## Default Assets To Reference
 
