@@ -4,8 +4,8 @@ Use this before sending any Business Analyst application.
 
 ## Required Proof Links
 
-- GitHub repository link
-- Frontend dashboard path or hosted URL
+- GitHub repository: `https://github.com/Amartya2001-droid/ba-job-canada-tracker`
+- Live dashboard: `https://amartya2001-droid.github.io/ba-job-canada-tracker/frontend/index.html`
 - Wait times dashboard preview: `assets/screenshots/wait-times-dashboard-preview.svg`
 - Access coverage dashboard preview: `assets/screenshots/access-coverage-dashboard-preview.svg`
 - Final Power BI PDF once exported: `assets/screenshots/healthcare-ba-portfolio.pdf`
