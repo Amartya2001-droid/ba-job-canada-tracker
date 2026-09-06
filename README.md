@@ -106,13 +106,14 @@ Use `docs/final-5-day-finish-plan.md` for the current closing-stretch sequence.
 - Create one folder per project inside `projects/`.
 - Use `docs/healthcare-positioning.md` to keep resume, LinkedIn, and portfolio messaging aligned.
 - Use `docs/sql-powerbi-workflow.md` as the default build process for both projects.
+- Use `docs/sqlite-runbook.md` for the full numbered pipeline: download, extract, filter population, build, and run reports.
 - Use `scripts/build_healthcare_sqlite.sh` to create a local SQLite database after the raw files are extracted.
 - Use `scripts/check_healthcare_outputs.sh` after report generation to confirm the expected wait-time and province coverage outputs are present.
 - Use `docs/application-proof-checklist.md` before sending applications so every role includes the right proof links.
 - Use `docs/application-tracker-workflow.md` when you start filling real application rows.
 - Use `docs/send-ready-application-package.md` when you are actually about to submit a role.
 - Use `docs/production-launch-checklist.md` before publishing the dashboard publicly.
-- Use `docs/github-pages-deployment.md` when enabling the public portfolio URL.
+- Use `docs/github-pages-deployment.md` for how the live Pages deployment is set up.
 - Use `scripts/print_finish_status.sh` when you want one quick snapshot of what is still missing.
 - Use `scripts/verify_portfolio_ready.sh` before pushing final launch changes.
 - Use `scripts/check_frontend_links.sh` if you want to isolate path or asset-link issues in the frontend.
