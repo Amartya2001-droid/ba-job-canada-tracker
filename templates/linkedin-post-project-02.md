@@ -16,3 +16,5 @@ Tools used:
 - Dashboard planning for Power BI
 
 This project helped me practice combining supply-side and population context to build a more decision-ready view of regional healthcare access.
+
+Full dashboard: https://amartya2001-droid.github.io/ba-job-canada-tracker/frontend/index.html
