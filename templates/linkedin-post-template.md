@@ -20,3 +20,5 @@ Tools used:
 - [Tool 2]
 
 This project helped me think through how business analysts can turn raw public data into practical business insight.
+
+[Add link to the live dashboard or repo before posting]
