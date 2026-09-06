@@ -43,3 +43,7 @@ Next step: turning these into Power BI dashboards and targeted applications.
 - Open to feedback from Business Analysts and healthcare analytics professionals in Canada.
 - If you work in healthcare analytics or Business Analysis, I’d love to learn from your perspective.
 - Building this in public to stay accountable and get better at problem-focused analysis.
+
+## Link To Include
+
+Add this before posting: `https://amartya2001-droid.github.io/ba-job-canada-tracker/frontend/index.html`
