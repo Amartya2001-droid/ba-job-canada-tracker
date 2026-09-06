@@ -16,3 +16,5 @@ Tools used:
 - Power BI workflow planning
 
 This project helped me think more like a Business Analyst by focusing on what a healthcare leader would actually need to know, not just what charts look interesting.
+
+Full dashboard: https://amartya2001-droid.github.io/ba-job-canada-tracker/frontend/index.html
