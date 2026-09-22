@@ -58,7 +58,7 @@ The first command catches duplicate links, malformed dates, and weak rows. The s
 
 Learned the hard way on 2026-08-16 while logging the first real batch:
 
-- **No commas inside any field.** The validation scripts split CSV rows on raw commas, so a comma shifts column positions even when the helper quotes the field. Use semicolons for lists (`SQL; Power BI; Excel`) and drop the comma from locations (`Toronto ON`, not `Toronto, ON`). The CLI helper now rejects comma-containing fields with a clear error.
+- Commas, quotes, and multiline notes are supported. The CLI helper quotes CSV fields, and the checks, snapshot export, and reminders parse CSV records with Python 3. Do not split records manually on commas.
 - **Quote dollar amounts carefully in the shell.** In a double-quoted `--notes` argument, `$43/hr` expands `$4` as a positional parameter and silently becomes `3/hr`. Use single quotes around notes that contain dollar signs, or escape them (`\$43/hr`).
 - **Follow-up dates must be `YYYY-MM-DD`.** The consistency checker enforces this format.
 - **Record the posted date in the notes.** Postings expire; the posted date makes it obvious when a link needs re-verification before applying.

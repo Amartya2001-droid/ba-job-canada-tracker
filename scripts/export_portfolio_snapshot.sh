@@ -37,20 +37,14 @@ count_csv_rows() {
     return
   fi
 
-  tail -n +2 "$csv_path" | awk -F',' '
-    {
-      nonempty = 0
-      for (i = 1; i <= NF; i++) {
-        if ($i != "") {
-          nonempty = 1
-        }
-      }
-      if (nonempty) {
-        count += 1
-      }
-    }
-    END { print count + 0 }
-  '
+  python3 - "$csv_path" <<'PY'
+import csv
+import sys
+with open(sys.argv[1], newline='', encoding='utf-8-sig') as source:
+    reader = csv.reader(source, strict=True)
+    next(reader, None)
+    print(sum(1 for row in reader if any(value.strip() for value in row)))
+PY
 }
 
 final_asset_paths=(
