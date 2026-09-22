@@ -24,5 +24,21 @@ jobs:
       - name: Make verification scripts executable
         run: chmod +x scripts/check_healthcare_outputs.sh scripts/verify_portfolio_ready.sh
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install report test dependencies
+        run: sudo apt-get update && sudo apt-get install -y zsh sqlite3
+
+      - name: Run regression tests
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Check application and networking trackers
+        run: |
+          ./scripts/check_application_readiness.sh
+          ./scripts/check_networking_tracker.sh
+
       - name: Run portfolio readiness verification
         run: bash ./scripts/verify_portfolio_ready.sh

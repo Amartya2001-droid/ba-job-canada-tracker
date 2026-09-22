@@ -6,6 +6,8 @@ This repository tracks a 7-day sprint to become job-ready for a fresher Business
 
 ## Goal
 
+Local checks require Python 3, Node.js, Bash, and (for SQL report tests) zsh and SQLite. Run `python3 -m unittest discover -s tests -v` for regression tests. Pages runs tests and tracker validation before publishing and generates a fresh deployment snapshot. Local verification leaves the tracked snapshot unchanged.
+
 Build proof of work for a Canadian healthcare focus, turn public data into portfolio-ready analysis, and track targeted applications.
 
 ## Current Portfolio Snapshot

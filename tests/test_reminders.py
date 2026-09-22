@@ -1,11 +1,11 @@
 from datetime import date
 import unittest
-from test_application_tracker import TrackerTests
+import test_application_tracker
 from followup_reminders import due_rows
 
 class ReminderTests(unittest.TestCase):
     def test_cutoff_sorting_and_closed_status(self):
-        base = TrackerTests().row()
+        base = test_application_tracker.TrackerTests().row()
         rows = [dict(base, follow_up_date=d, status=s) for d, s in [
             ('2026-09-29', 'shortlist'), ('2026-09-20', 'applied'),
             ('2026-09-21', 'Rejected'), ('2026-09-30', 'applied')]]

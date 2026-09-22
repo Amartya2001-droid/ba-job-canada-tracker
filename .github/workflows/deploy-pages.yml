@@ -33,6 +33,26 @@ jobs:
         with:
           enablement: true
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install report test dependencies
+        run: sudo apt-get update && sudo apt-get install -y zsh sqlite3
+
+      - name: Validate before publishing
+        run: |
+          python3 -m unittest discover -s tests -v
+          ./scripts/check_application_readiness.sh
+          ./scripts/check_networking_tracker.sh
+          ./scripts/export_portfolio_snapshot.sh
+
       - name: Upload static site artifact
         uses: actions/upload-pages-artifact@v3
         with:
