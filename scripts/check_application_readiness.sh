@@ -21,42 +21,18 @@ if grep -q '\[Target ' "$FIRST_FIVE_MD"; then
   exit 1
 fi
 
-REAL_ROWS=$(tail -n +2 "$APPLICATIONS_CSV" | awk -F',' '
-  {
-    nonempty = 0
-    for (i = 1; i <= NF; i++) {
-      if ($i != "") {
-        nonempty = 1
-      }
-    }
-    if (nonempty) {
-      count += 1
-    }
-  }
-  END { print count + 0 }
-')
-
-if [[ "$REAL_ROWS" -lt 5 ]]; then
-  echo "Expected at least 5 real application rows, found $REAL_ROWS."
-  exit 1
-fi
-
-INVALID_ROWS=$(tail -n +2 "$APPLICATIONS_CSV" | awk -F',' '
-  {
-    if ($1 != "" || $2 != "" || $3 != "" || $5 != "") {
-      if ($2 == "" || $3 == "" || $4 == "" || $5 == "" || $8 == "" || $10 == "" || $11 == "") {
-        invalid += 1
-      }
-    }
-  }
-  END { print invalid + 0 }
-')
-
-if [[ "$INVALID_ROWS" -gt 0 ]]; then
-  echo "Found $INVALID_ROWS incomplete application row(s) in applications.csv."
-  exit 1
-fi
-
-"$ROOT_DIR/scripts/check_tracker_consistency.sh" >/dev/null
+python3 - "$ROOT_DIR" <<'PY'
+import pathlib
+import sys
+sys.path.insert(0, str(pathlib.Path(sys.argv[1]) / 'scripts'))
+from application_tracker import read_rows, validate
+try:
+    rows = read_rows(pathlib.Path(sys.argv[1]) / 'tracker/applications.csv')
+    validate(rows)
+    if len(rows) < 5:
+        raise ValueError(f'Expected at least 5 valid target rows, found {len(rows)}.')
+except (ValueError, OSError) as error:
+    sys.exit(str(error))
+PY
 
 echo "Application readiness checks passed."
