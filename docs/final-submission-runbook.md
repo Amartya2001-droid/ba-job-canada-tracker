@@ -38,6 +38,8 @@ Run:
 
 This confirms the frontend, required docs, preview assets, and report outputs are in place.
 
+Verification is read-only. Refresh the snapshot explicitly after changing tracker data or proof assets using `./scripts/export_portfolio_snapshot.sh`.
+
 ## 3. Confirm Application Readiness
 
 Run:

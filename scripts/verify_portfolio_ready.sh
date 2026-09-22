@@ -27,6 +27,5 @@ done
 node --check "$FRONTEND_JS"
 "$ROOT_DIR/scripts/check_healthcare_outputs.sh"
 "$ROOT_DIR/scripts/check_frontend_links.sh"
-"$ROOT_DIR/scripts/export_portfolio_snapshot.sh" >/dev/null
 
 echo "Portfolio readiness checks passed."
