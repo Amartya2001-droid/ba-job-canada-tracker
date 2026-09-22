@@ -20,6 +20,7 @@ if [[ "$ROW_COUNT" == "0" ]]; then
   exit 1
 fi
 
-sqlite3 "$DB_PATH" < "$ROOT_DIR/sql/sqlite/05_wait_times_reports.sql"
+cd "$ROOT_DIR"
+sqlite3 -bail "$DB_PATH" < "$ROOT_DIR/sql/sqlite/05_wait_times_reports.sql"
 
 echo "Generated wait-times report in $REPORTS_DIR/wait_times_summary.csv"

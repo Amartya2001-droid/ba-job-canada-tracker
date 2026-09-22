@@ -23,6 +23,7 @@ if [[ "$WAIT_COUNT" == "0" || "$POP_COUNT" == "0" || "$FAC_COUNT" == "0" ]]; the
   exit 1
 fi
 
-sqlite3 "$DB_PATH" < "$ROOT_DIR/sql/sqlite/03_analysis_queries.sql"
+cd "$ROOT_DIR"
+sqlite3 -bail "$DB_PATH" < "$ROOT_DIR/sql/sqlite/03_analysis_queries.sql"
 
 echo "Generated SQLite reports in $REPORTS_DIR"
