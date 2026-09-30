@@ -28,6 +28,10 @@ One challenge was handling the healthcare population source because it was large
 
 I score each posting against my actual stack overlap rather than applying broadly. For my first real batch, I researched live healthcare postings, verified each one was still open, and scored stack match honestly, including where a posting was a stretch, for example a senior title with strong tool overlap versus a hospital BA role with less analytics overlap but strong domain fit. I documented the reasoning and apply order in one file so the prioritization itself is visible, not just the outcome. That same discipline is how I would approach a stakeholder request to prioritize a backlog: score against clear criteria, write down the reasoning, and revisit it as new information comes in.
 
+## How Do You Make Sure Your Data Stays Reliable Over Time?
+
+I built automated validation instead of trusting manual checks. The application and networking trackers are read and validated with Python's `csv` module rather than a hand-written parser, so quoted fields, embedded commas, and multiline notes are handled correctly instead of silently breaking. I also wrote a unit test suite (`tests/`, run with `unittest`) covering edge cases like duplicate job links, invalid dates, malformed URLs, and blank rows, and wired it into the CI pipeline so a broken tracker file fails the build before anything gets published. That is the same instinct I would bring to a BA role: don't just produce a report once, build in a check that catches the report being wrong the next time the underlying data changes.
+
 ## How Would You Communicate Findings To A Non-Technical Stakeholder?
 
 I would keep the message focused on the business question, the key metric, and the decision implication. For example, in the wait-times project I would avoid leading with SQL details and instead explain that median wait time alone can understate patient access pressure, especially for non-emergency surgeries.
