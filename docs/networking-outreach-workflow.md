@@ -25,8 +25,8 @@ Two networking messages per week, per `docs/job-search-rhythm.md`. Prioritize co
 
 Same rules as the application tracker (see `docs/application-tracker-workflow.md`):
 
-- No commas inside any field — use semicolons for lists.
-- Dates must be `YYYY-MM-DD`.
+- Commas and quotes are supported. `scripts/check_networking_tracker.sh` parses the file with Python's `csv` module (`scripts/networking_tracker.py`), so a field like `"learn about hiring, referrals"` is read correctly. Do not split records manually on commas.
+- Dates must be `YYYY-MM-DD` for both `date` and `follow_up_date`.
 - Do not log a row until the message has actually been sent.
 
 ## Validation
