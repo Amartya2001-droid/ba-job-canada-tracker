@@ -2,7 +2,11 @@
 
 This repository tracks a 7-day sprint to become job-ready for a fresher Business Analyst role in Canada.
 
-**Live dashboard:** https://amartya2001-droid.github.io/ba-job-canada-tracker/frontend/index.html
+**Dashboard URL:** https://amartya2001-droid.github.io/ba-job-canada-tracker/frontend/index.html
+
+The latest recorded Pages deployment passed on September 30, 2026, for commit `f90dc4b`. A fresh HTTP/browser check is still required to confirm availability and deployed content; the Day 1 environment currently blocks the Pages host. Final Power BI PNG/PDF exports remain pending; the SVG previews and SQLite reports are available.
+
+Program reports: [10-day agent program — daily log](https://github.com/Amartya2001-droid/ba-job-canada-tracker/issues/1). Repository rules: [AGENTS.md](AGENTS.md).
 
 ## Goal
 
@@ -97,7 +101,7 @@ Use `docs/final-5-day-finish-plan.md` for the current closing-stretch sequence.
 2. Add screenshots or exports back into the repo once the Power BI pages are built.
 3. Build the final Power BI screenshots and save them in `assets/screenshots/`.
 4. Keep the frontend dashboard updated as the portfolio homepage.
-5. Publish the dashboard through GitHub Pages once the final QA pass is complete.
+5. Verify the existing GitHub Pages deployment and refresh it after changes pass QA.
 6. Apply only to jobs with 70%+ stack overlap once the project artifacts are polished.
 
 ## How We Will Use This Repo
@@ -126,4 +130,4 @@ Use `docs/final-5-day-finish-plan.md` for the current closing-stretch sequence.
 
 ## Next Step
 
-Build the Power BI dashboard pages from `docs/powerbi-implementation-guide.md`, export the final PNG/PDF assets, and then publish the dashboard through GitHub Pages.
+Build the Power BI dashboard pages from `docs/powerbi-implementation-guide.md`, export the final PNG/PDF assets, and verify the existing GitHub Pages dashboard reflects the merged changes.
