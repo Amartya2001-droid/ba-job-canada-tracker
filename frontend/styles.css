@@ -260,6 +260,7 @@ h2 {
 }
 
 .card {
+  overflow-wrap: anywhere;
   padding: 26px;
 }
 
@@ -930,13 +931,13 @@ tr:last-child td {
   .application-board,
   .entry-helper-grid,
   .entry-output-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .timeline-item,
   .bar-row,
   .data-summary {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   h1 {
