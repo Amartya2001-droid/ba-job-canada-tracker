@@ -6,7 +6,7 @@ This repository tracks a 7-day sprint to become job-ready for a fresher Business
 
 Explore both SQL report datasets, filter their rows, and review project previews and application tracker data. The dashboard adapts to mobile screens; wide data tables scroll within their panels.
 
-Pages publishes the static dashboard after tests pass. The deployment workflow then fetches the public dashboard, JavaScript, CSS, snapshot, SQL reports, and trackers and requires them to match the uploaded files. See [deployment runs](https://github.com/Amartya2001-droid/ba-job-canada-tracker/actions/workflows/deploy-pages.yml) for verified status. Final Power BI PNG/PDF exports remain pending; the SVG previews and SQLite reports are available.
+Pages publishes the static dashboard after tests pass. Each deployment attempt uses its own artifact name so reruns cannot collide with earlier uploads. The deployment workflow then fetches the public dashboard, JavaScript, CSS, snapshot, SQL reports, and trackers and requires them to match the uploaded files. See [deployment runs](https://github.com/Amartya2001-droid/ba-job-canada-tracker/actions/workflows/deploy-pages.yml) for verified status. Final Power BI PNG/PDF exports remain pending; the SVG previews and SQLite reports are available.
 
 Program reports: [10-day agent program — daily log](https://github.com/Amartya2001-droid/ba-job-canada-tracker/issues/1). Repository rules: [AGENTS.md](AGENTS.md).
 
