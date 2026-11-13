@@ -2,7 +2,9 @@
 
 This repository tracks a 7-day sprint to become job-ready for a fresher Business Analyst role in Canada.
 
-**Dashboard URL:** https://amartya2001-droid.github.io/ba-job-canada-tracker/frontend/index.html
+**Live showcase:** [Open the Healthcare BA dashboard](https://amartya2001-droid.github.io/ba-job-canada-tracker/frontend/index.html)
+
+Explore both SQL report datasets, filter their rows, and review project previews and application tracker data. The dashboard adapts to mobile screens; wide data tables scroll within their panels.
 
 Pages publishes the static dashboard after tests pass. The deployment workflow then fetches the public dashboard, JavaScript, CSS, snapshot, SQL reports, and trackers and requires them to match the uploaded files. See [deployment runs](https://github.com/Amartya2001-droid/ba-job-canada-tracker/actions/workflows/deploy-pages.yml) for verified status. Final Power BI PNG/PDF exports remain pending; the SVG previews and SQLite reports are available.
 
